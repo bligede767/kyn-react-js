@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+// import { Link, useParams } from "react-router-dom";
+// import { MyContext } from "./MyContext";
+
 
 export default function Home() {
     const [cars, setCars] = useState([]);
@@ -27,12 +31,14 @@ export default function Home() {
                 <tbody>
                     {
                         cars.map((car, index) => (
+
                             <tr>
                                 <td scope="row" key={car.id}>{car.id}</td>
                                 <td>{car.carName}</td>
                                 <td>{car.model}</td>
                                 <td>{car.makeYear}</td>
                                 <td>{car.price}</td>
+                                <Link to={`rest/viewCar?cid=${car.id}`}>View</Link>
                             </tr>
                         ))
                     }
