@@ -62,7 +62,7 @@ export default function SearchCars() {
                                 <td>{car.model}</td>
                                 <td>{car.makeYear}</td>
                                 <td>{car.price}</td>
-                                <Link to={`/viewCar/1`}>View</Link>
+                                <Link to={`/viewCar/${car.id}`}>View</Link>
                             </tr>
                         ))
                     }
