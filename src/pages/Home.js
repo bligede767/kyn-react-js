@@ -38,7 +38,7 @@ export default function Home() {
                                 <td>{car.model}</td>
                                 <td>{car.makeYear}</td>
                                 <td>{car.price}</td>
-                                <Link to={`rest/viewCar?cid=${car.id}`}>View</Link>
+                                <Link to={`/viewCar/1`}>View</Link>
                             </tr>
                         ))
                     }
