@@ -15,6 +15,10 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/viewCar/:cid" element={<ViewCar />} />
+          <Route exact path="/search/by/:filter/q/:q" element={<SearchCars />} />
+          <Route exact path="/search/by/:filter/min/:min" element={<SearchCars />} />
+          <Route exact path="/search/by/:filter/max/:max" element={<SearchCars />} />
+          <Route exact path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
         </Routes>
       </Router>
     </div>
