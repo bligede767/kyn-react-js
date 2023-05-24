@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
+import SearchBar from '../components/SearchBar'
 
 export default function SearchCars() {
     const [cars, setCars] = useState([]);
@@ -10,7 +11,7 @@ export default function SearchCars() {
     useEffect(() => {
         console.log("search car works")
         loadSearchedCars();
-    }, [])
+    }, [filter, q, min, max])
 
     const loadSearchedCars = async () => {
         let result = await axios.get("http://localhost:2323/rest/cars");
@@ -31,11 +32,11 @@ export default function SearchCars() {
             console.log(`search by price: min: ${min} max: ${max}`);
             if (min != null && max == null) {
                 result = await axios.get(`http://localhost:2323/rest/search?by=price&min=${min}`)
-            }
-            else if (min === null && max != null) {
+            } else if (min == null && max != null) {
                 result = await axios.get(`http://localhost:2323/rest/search?by=price&max=${max}`)
+            } else if (min !== null && max !== null) {
+                result = await axios.get(`http://localhost:2323/rest/search?by=price&min=${min}&max=${max}`)
             }
-            result = await axios.get(`http://localhost:2323/rest/search?by=price&min=${min}&max=${max}`)
         }
         console.log(result.data);
         setCars(result.data);
@@ -43,6 +44,7 @@ export default function SearchCars() {
 
     return (
         <div className='container'>
+            <SearchBar/>
             <table>
                 <thead>
                     <tr>
