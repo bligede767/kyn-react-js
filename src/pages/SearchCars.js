@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
+import Card from '../components/Card'
 
 export default function SearchCars() {
     const [cars, setCars] = useState([]);
@@ -42,33 +43,17 @@ export default function SearchCars() {
     }
 
     return (
-        <div className='container'>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Car Name</th>
-                        <th>Model</th>
-                        <th>Make Year</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        cars.map((car, index) => (
-                            <tr>
-                                <td scope="row" key={car.id}>{car.id}</td>
-                                <td>{car.carName}</td>
-                                <td>{car.model}</td>
-                                <td>{car.makeYear}</td>
-                                <td>{car.price}</td>
-                                <Link to={`/viewCar/${car.id}`}>View</Link>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+        <div>
+            <Link className='btn' to="/">
+                <h1 className="heading">« Back</h1>
+            </Link>
+            <div className='cards'>
+                {
+                    cars.map((car, index) => (
+                        <Card carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                    ))
+                }
+            </div>
         </div>
-
     )
 }

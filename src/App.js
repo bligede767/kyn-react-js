@@ -13,7 +13,7 @@ function App() {
       <Router>
         <MySidebar />
         <div className="main_content">
-          <div className="container">
+          <div className="container ">
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/addcar" element={<AddCar />} />

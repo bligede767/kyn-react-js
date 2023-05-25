@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 // import { Link, useParams } from "react-router-dom";
 // import { MyContext } from "./MyContext";
+import Card from '../components/Card'
 
 
 export default function Home() {
@@ -17,34 +18,15 @@ export default function Home() {
         setCars(result.data);
     }
     return (
-        <div className=''>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Car Name</th>
-                        <th>Model</th>
-                        <th>Make Year</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        cars.map((car, index) => (
-
-                            <tr>
-                                <td scope="row" key={car.id}>{car.id}</td>
-                                <td>{car.carName}</td>
-                                <td>{car.model}</td>
-                                <td>{car.makeYear}</td>
-                                <td>{car.price}</td>
-                                <Link to={`/viewCar/${car.id}`}>View</Link>
-                            </tr>
-                        ))
-                    }
-
-                </tbody>
-            </table>
+        <div>
+            <h1 className="heading" >Car List</h1>
+            <div className='cards'>
+                {
+                    cars.map((car, index) => (
+                        <Card carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                    ))
+                }
+            </div>
         </div>
     )
 }
