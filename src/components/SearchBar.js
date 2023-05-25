@@ -6,10 +6,7 @@ const SearchBar = () => {
     const [selectedFilter, setSelectedFilter] = useState('');
 
     const handleRadioChange = (e) => {
-        // document.getElementById("search-form").reset();
-        // document.getElementById("anjing").attributes["required"] = ""; 
         setSelectedFilter(e.target.value);
-        console.log("radio")
     }
 
     const onSubmit = async (e) => {
@@ -66,31 +63,77 @@ const SearchBar = () => {
                 <div>
                     <div>
                         <input type="hidden" id="carname" name="filter" value="carname" />
-                        <input type="text" name="carNameKeyword" placeholder='Search' required />
+                        <input type="text" className='form-control' name="carNameKeyword" placeholder='Search' required />
                     </div>
                 </div>) : (
 
                 <div>
-                    <div>
-                        <input type="radio" id="carname" name="filter" value="carname" onChange={handleRadioChange} />
-                        <label htmlFor="carname">Car Name</label>
-                        <input type="text" name="carNameKeyword" placeholder='Car Name' required={selectedFilter === 'carname'} />
-                    </div>
-                    <div>
-                        <input type="radio" id="model" name="filter" value="model" onChange={handleRadioChange} />
-                        <label htmlFor="model">Model</label>
-                        <input type="text" id="anjing" name="modelKeyword" placeholder='Model' required={selectedFilter === 'model'} />
-                    </div>
-                    <div>
-                        <input type="radio" id="makeyear" name="filter" value="makeyear" onChange={handleRadioChange} />
-                        <label htmlFor="makeyear">Make Year</label>
-                        <input type="text" name="makeYearKeyword" placeholder='Make Year' required={selectedFilter === 'makeyear'} />
-                    </div>
-                    <div>
-                        <input type="radio" id="price" name="filter" value="price" onChange={handleRadioChange} />
-                        <label htmlFor="price">Price</label>
-                        <input type="number" placeholder='Minimum Price' name="min" />
-                        <input type="number" placeholder='Maximum Price' name="max" />
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" >
+                                    Car Name
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div>
+                                        <input type="radio" id="carname" className='radio-input' name="filter" value="carname" onChange={handleRadioChange} />
+                                        <label htmlFor="carname">Car Name</label>
+                                        <input type="text" name="carNameKeyword" className='form-control' placeholder='Car Name' required={selectedFilter === 'carname'} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" >
+                                    Model
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div>
+                                        <input type="radio" id="model" className='radio-input' name="filter" value="model" onChange={handleRadioChange} />
+                                        <label htmlFor="model">Model</label>
+                                        <input type="text" id="anjing" name="modelKeyword" className='form-control' placeholder='Model' required={selectedFilter === 'model'} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" >
+                                    Make Year
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div>
+                                        <input type="radio" id="makeyear" className='radio-input' name="filter" value="makeyear" onChange={handleRadioChange} />
+                                        <label htmlFor="makeyear">Make Year</label>
+                                        <input type="text" name="makeYearKeyword" className='form-control' placeholder='Make Year' required={selectedFilter === 'makeyear'} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour" >
+                                    Price
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div>
+                                        <input type="radio" id="price" className='radio-input' name="filter" value="price" onChange={handleRadioChange} />
+                                        <label htmlFor="price">Price</label>
+                                        <input type="number" className='form-control' placeholder='Minimum Price' name="min" />
+                                        <input type="number" className='form-control' placeholder='Maximum Price' name="max" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

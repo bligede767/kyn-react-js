@@ -32,7 +32,7 @@ export default function SaveCar() {
       </div>
       <form onSubmit={(e) => onSubmit(e)} className="row g-3">
         <div className="col-md-12">
-          <label for="carName" class="form-label">First name</label>
+          <label for="carName" class="form-label">Car Name</label>
           <input
             type={"text"}
             className="form-control"

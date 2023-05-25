@@ -215,3 +215,12 @@ body {
   font-size: 30px;
   color: #ad7d52;
 }
+
+/* ====== Search Bar Styling ====== */
+.accordion-collapse {
+  transition-duration: 10ms !important;
+}
+
+#search-form .form-control {
+  width: 90% !important;
+}

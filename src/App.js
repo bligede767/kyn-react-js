@@ -4,6 +4,9 @@ import ViewCar from './pages/ViewCar'
 import MySidebar from "./components/MySidebar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+// import "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 import SearchCars from './pages/SearchCars';
 import AddCar from './pages/AddCar'
 
@@ -26,6 +29,7 @@ function App() {
           </div>
         </div>
       </Router>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.2/dist/js/bootstrap.bundle.min.js"></script>
     </div>
   );
 }
