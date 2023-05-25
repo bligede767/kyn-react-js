@@ -8,7 +8,6 @@ export default function MySidebar() {
       <h2>XYZ Car</h2>
       <ul>
         <li><Link to="/"><i class="fas fa-home"></i>Home</Link></li>
-        <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
         <li><i class="fas fa-project-diagram"></i><SearchBar /></li>
       </ul>
     </div>

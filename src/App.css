@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* ====== Global Styling ====== */
 * {
   margin: 0;
@@ -45,6 +46,7 @@ body {
   color: #bdb8d7;
   display: block;
 }
+
 .wrapper .sidebar ul li {
   color: #bdb8d7;
   display: block;
@@ -70,6 +72,7 @@ body {
 .heading {
   margin-bottom: 30px;
 }
+
 .wrapper .main_content {
   width: 100%;
   margin-top: 30px;
@@ -159,7 +162,7 @@ body {
   background-color: #fff;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  padding: 16px 24px 24px 24px;
+  padding: 0 24px 24px 24px;
 }
 
 .card-category {
@@ -177,23 +180,38 @@ body {
 }
 
 .price {
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   color: #ad7d52;
   font-size: 14px;
-  font-weight: 500;
 }
+
 /* responsive */
 
 @media screen and (max-width: 700px) {
   .card {
-      width: 20em;
-      display: block;
-      margin: 1em;
+    width: 20em;
+    display: block;
+    margin: 1em;
   }
 
   body {
-      display: flex;
-      align-items: flex-start;
+    display: flex;
+    align-items: flex-start;
   }
+}
+
+/* ====== Main Content Styling ====== */
+.car-detail-img {
+  width: 100%;
+  border-style: solid;
+  border-color: #E5E7E9;
+  border-width: 2px;
+  border-radius: 15px;
+}
+
+.card-detail-price {
+  font-weight: 500;
+  font-size: 30px;
+  color: #ad7d52;
 }
