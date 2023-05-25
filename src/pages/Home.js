@@ -19,7 +19,10 @@ export default function Home() {
     }
     return (
         <div>
-            <h1 className="heading" >Car List</h1>
+            <div className='heading'>
+                <h1>Car List</h1>
+                <Link to={"/addcar"} className='btn btn-dark'>+ Add car</Link>
+            </div>
             <div className='cards'>
                 {
                     cars.map((car, index) => (

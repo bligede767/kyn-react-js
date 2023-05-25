@@ -68,13 +68,14 @@ body {
 }
 
 .heading {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 .wrapper .main_content {
   width: 100%;
   margin-top: 30px;
   margin-bottom: 60px;
   margin-left: 310px;
+  margin-right: 55px;
 }
 
 .wrapper .main_content .header {
@@ -137,6 +138,10 @@ body {
   border-top-right-radius: 12px;
   top: 0;
   transition: 0.2s all ease-out;
+}
+
+.card-img-hover img {
+  width: 100%;
 }
 
 .card:hover .card-img-hover {

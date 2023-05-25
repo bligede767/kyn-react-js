@@ -23,14 +23,16 @@ const SearchBar = () => {
         let min = '';
         let max = '';
 
-        if (!isHome) {
-            // carNameKeyword = e.target.carNameKeyword.value;
-            modelKeyword = e.target.modelKeyword.value;
-            makeYearKeyword = e.target.makeYearKeyword.value;
-            price = e.target.carNameKeyword.value;
-            min = e.target.min.value;
-            max = e.target.max.value;
-        }
+        if (isInSearch) {
+            carNameKeyword = e.target.carNameKeyword.value;
+          } else {
+            carNameKeyword = e.target.carNameKeyword?.value || '';
+            modelKeyword = e.target.modelKeyword?.value || '';
+            makeYearKeyword = e.target.makeYearKeyword?.value || '';
+            price = e.target.carNameKeyword?.value || '';
+            min = e.target.min?.value || '';
+            max = e.target.max?.value || '';
+          }
 
         if (filter == "carname") {
             console.log(`car name: ${filter} ${carNameKeyword}`)
@@ -51,11 +53,11 @@ const SearchBar = () => {
         }
     };
 
-    const isHome = useLocation().pathname === '/';
+    const isInSearch = useLocation().pathname.includes("/search");
 
     return (
         <form id="search-form" onSubmit={onSubmit}>
-            {isHome ? (
+            {!isInSearch ? (
                 <div>
                     <div>
                         <input type="hidden" id="carname" name="filter" value="carname" />
@@ -82,8 +84,8 @@ const SearchBar = () => {
                     <div>
                         <input type="radio" id="price" name="filter" value="price" onChange={handleRadioChange} />
                         <label htmlFor="price">Price</label>
-                        <input type="numnber" name="min" />
-                        <input type="numnber" name="max" />
+                        <input type="number" name="min" />
+                        <input type="number" name="max" />
                     </div>
                 </div>
             )}
