@@ -17,7 +17,7 @@ export default function Home() {
         setCars(result.data);
     }
     return (
-        <div className='container'>
+        <div className=''>
             <table>
                 <thead>
                     <tr>

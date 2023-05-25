@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import SearchBar from '../components/SearchBar'
 
 export default function SearchCars() {
     const [cars, setCars] = useState([]);
@@ -44,7 +43,6 @@ export default function SearchCars() {
 
     return (
         <div className='container'>
-            <SearchBar/>
             <table>
                 <thead>
                     <tr>
