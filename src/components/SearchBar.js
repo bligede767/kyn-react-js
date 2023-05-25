@@ -3,10 +3,6 @@ import { useNavigate, useHistory } from 'react-router-dom'
 const SearchBar = () => {
     let navigate = useNavigate();
 
-    const handleRadioChange = (e) => {
-        document.getElementById("search-form").reset();
-    }
-
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -44,22 +40,22 @@ const SearchBar = () => {
     return (
         <form id="search-form" onSubmit={onSubmit}>
             <div>
-                <input type="radio" id="carname" name="filter" value="carname" onChange={handleRadioChange} />
+                <input type="radio" id="carname" name="filter" value="carname" />
                 <label htmlFor="carname">Car Name</label>
                 <input type="text" name="carNameKeyword" />
             </div>
             <div>
-                <input type="radio" id="model" name="filter" value="model" onChange={handleRadioChange} />
-                <label htmlFor="carname">Model</label>
+                <input type="radio" id="model" name="filter" value="model" />
+                <label htmlFor="model">Model</label>
                 <input type="text" name="modelKeyword" />
             </div>
             <div>
-                <input type="radio" id="makeyear" name="filter" value="makeyear" onChange={handleRadioChange} />
+                <input type="radio" id="makeyear" name="filter" value="makeyear" />
                 <label htmlFor="makeyear">Make Year</label>
                 <input type="text" name="makeYearKeyword" />
             </div>
             <div>
-                <input type="radio" id="price" name="filter" value="price" onChange={handleRadioChange} />
+                <input type="radio" id="price" name="filter" value="price" />
                 <label htmlFor="price">Price</label>
                 <input type="numnber" name="min" />
                 <input type="numnber" name="max" />
