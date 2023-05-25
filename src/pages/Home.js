@@ -21,7 +21,7 @@ export default function Home() {
         <div>
             <div className='heading'>
                 <h1>Car List</h1>
-                <Link to={"/addcar"} className='btn btn-dark'>+ Add car</Link>
+                <Link to={"/addcar"} className='btn btn-dark'>+ Add a car</Link>
             </div>
             <div className='cards'>
                 {

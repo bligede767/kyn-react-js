@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function SaveCar() {
   let navigate = useNavigate();
@@ -25,37 +25,56 @@ export default function SaveCar() {
   };
 
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
-      <input
-        type={"text"}
-        className="form-control"
-        placeholder="Enter car name 2"
-        name="carName"
-        value={carName}
-        onChange={(e) => onInputChange(e)} required />
-      <input
-        type={"text"}
-        className="form-control"
-        placeholder="Enter model"
-        name="model"
-        value={model}
-        onChange={(e) => onInputChange(e)} required />
-      <input
-        type={"text"}
-        className="form-control"
-        placeholder="Enter make year"
-        name="makeYear"
-        value={makeYear}
-        onChange={(e) => onInputChange(e)} required />
-      <input
-        type={"text"}
-        className="form-control"
-        placeholder="Enter price"
-        name="price"
-        value={price}
-        onChange={(e) => onInputChange(e)} required />
-
-      <button type='submit'>Submit</button>
-    </form>
+    <div>
+      <div className='heading'>
+        <h1>Car List</h1>
+        <Link to={"/"} className='btn btn-dark'>❌ Cancel</Link>
+      </div>
+      <form onSubmit={(e) => onSubmit(e)} className="row g-3">
+        <div className="col-md-12">
+          <label for="carName" class="form-label">First name</label>
+          <input
+            type={"text"}
+            className="form-control"
+            placeholder="Enter car name"
+            name="carName"
+            value={carName}
+            onChange={(e) => onInputChange(e)} required />
+        </div>
+        <div className="col-md-12">
+          <label for="model" class="form-label">Model</label>
+          <input
+            type={"text"}
+            className="form-control"
+            placeholder="Enter model"
+            name="model"
+            value={model}
+            onChange={(e) => onInputChange(e)} required />
+        </div>
+        <div className="col-md-12">
+          <label for="makeYear" class="form-label">Make Year</label>
+          <input
+            type={"text"}
+            className="form-control"
+            placeholder="Enter make year"
+            name="makeYear"
+            value={makeYear}
+            onChange={(e) => onInputChange(e)} required />
+        </div>
+        <div className="col-md-12">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type={"text"}
+            className="form-control"
+            placeholder="Enter price"
+            name="price"
+            value={price}
+            onChange={(e) => onInputChange(e)} required />
+        </div>
+        <div class="col-12">
+          <button type='submit' className='btn btn-primary' >Submit</button>
+        </div>
+      </form>
+    </div>
   )
 }
