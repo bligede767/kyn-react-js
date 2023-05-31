@@ -68,7 +68,7 @@ class App extends Component {
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
-                {/* <Route path="/profile" element={<Profile data={this.state} />} /> */}
+                <Route path="/profile"  element={<Profile data={this.state} />} />
                 <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
                 <Route path="/addcar" element={<AddCar />} />
                 <Route path="/viewCar/:cid" element={<ViewCar />} />

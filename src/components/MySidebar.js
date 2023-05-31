@@ -10,7 +10,7 @@ export default function MySidebar(props) {
       </Link>
       <ul>
         {props.authenticated ?
-          <li><Link to="/"><i class="fas fa-home"></i>Home</Link></li>
+          <li><Link to="/profile"><i class="fas fa-home"></i>Profile</Link></li>
           : <></>}
         {!props.authenticated ?
           <li><Link to="/login"><i class="fas fa-home"></i>Login</Link></li> : <></>}
