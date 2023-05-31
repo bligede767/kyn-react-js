@@ -17,7 +17,7 @@ export default function ViewCar() {
     }, [cid]);
 
     const loadCar = async () => {
-        const result = await axios.get(`http://localhost:2323/rest/viewCar?cid=${cid}`);
+        const result = await axios.get(`http://localhost:8080/rest/viewCar?cid=${cid}`);
         setCar(result.data);
     }
     return (

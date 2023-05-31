@@ -14,7 +14,7 @@ export default function Home() {
     }, []);
 
     const loadCars = async () => {
-        const result = await axios.get("http://localhost:2323/rest/cars")
+        const result = await axios.get("http://localhost:8080/rest/cars")
         setCars(result.data);
     }
     return (

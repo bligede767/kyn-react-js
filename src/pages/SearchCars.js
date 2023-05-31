@@ -14,28 +14,28 @@ export default function SearchCars() {
     }, [filter, q, min, max])
 
     const loadSearchedCars = async () => {
-        let result = await axios.get("http://localhost:2323/rest/cars");
+        let result = await axios.get("http://localhost:8080/rest/cars");
         const keyword = encodeURI(q);
         if (filter === "carname") {
             console.log(`search by carname: ${q}`);
-            result = await axios.get(`http://localhost:2323/rest/search?by=carName&keyword=${q}`)
+            result = await axios.get(`http://localhost:8080/rest/search?by=carName&keyword=${q}`)
         }
         else if (filter === "model") {
             console.log(`search by model: ${q}`);
-            result = await axios.get(`http://localhost:2323/rest/search?by=model&keyword=${q}`)
+            result = await axios.get(`http://localhost:8080/rest/search?by=model&keyword=${q}`)
         }
         else if (filter === "makeyear") {
             console.log(`search by make year: ${q}`);
-            result = await axios.get(`http://localhost:2323/rest/search?by=makeYear&keyword=${q}`)
+            result = await axios.get(`http://localhost:8080/rest/search?by=makeYear&keyword=${q}`)
         }
         else if (filter === "price") {
             console.log(`search by price: min: ${min} max: ${max}`);
             if (min != null && max == null) {
-                result = await axios.get(`http://localhost:2323/rest/search?by=price&min=${min}`)
+                result = await axios.get(`http://localhost:8080/rest/search?by=price&min=${min}`)
             } else if (min == null && max != null) {
-                result = await axios.get(`http://localhost:2323/rest/search?by=price&max=${max}`)
+                result = await axios.get(`http://localhost:8080/rest/search?by=price&max=${max}`)
             } else if (min !== null && max !== null) {
-                result = await axios.get(`http://localhost:2323/rest/search?by=price&min=${min}&max=${max}`)
+                result = await axios.get(`http://localhost:8080/rest/search?by=price&min=${min}&max=${max}`)
             }
         }
         console.log(result.data);

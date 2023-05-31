@@ -20,7 +20,7 @@ export default function SaveCar() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:2323/rest/saveCar", car);
+    await axios.post("http://localhost:8080/rest/saveCar", car);
     navigate("/");
   };
 
