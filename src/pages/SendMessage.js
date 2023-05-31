@@ -19,6 +19,7 @@ export default function SendMessage() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.post(`http://localhost:2323/slack/messages/${username}`, message);
+    alert("Message sent");
     navigate("/message");
   };
 
