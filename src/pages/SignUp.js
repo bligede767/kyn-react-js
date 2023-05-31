@@ -8,7 +8,7 @@ import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 import Alert from 'react-s-alert';
 
-const Signup = (props) => {
+const SignUp = (props) => {
     console.log(props)
     if (props.authenticated) {
         return <Navigate
@@ -81,7 +81,7 @@ class SignupForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-item">
                     <input type="text" name="name"
                         className="form-control" placeholder="Name"
@@ -106,4 +106,4 @@ class SignupForm extends Component {
     }
 }
 
-export default Signup
+export default SignUp
