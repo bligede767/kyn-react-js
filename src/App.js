@@ -9,6 +9,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // import "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 import SearchCars from './pages/SearchCars';
 import AddCar from './pages/AddCar'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <div className="main_content">
           <div className="container ">
             <Routes>
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/" element={<Home />} />
               <Route exact path="/addcar" element={<AddCar />} />
               <Route exact path="/viewCar/:cid" element={<ViewCar />} />
