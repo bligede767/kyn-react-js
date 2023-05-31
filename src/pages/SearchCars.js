@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Card from '../components/Card'
-import Alert from 'react-s-alert';
+
 import { ACCESS_TOKEN } from '../constants';
 
 export default function SearchCars() {
@@ -19,11 +19,10 @@ export default function SearchCars() {
     const loadSearchedCars = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
         if (!token) {
-            Alert.error('You must login before submit')
             navigate('/login')
             return;
         }
-        
+
         const headers = {
             headers: {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token

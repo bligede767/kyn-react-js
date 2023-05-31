@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Alert from 'react-s-alert';
+
 import { ACCESS_TOKEN } from '../constants';
 
 export default function ViewCar() {
@@ -23,7 +23,6 @@ export default function ViewCar() {
         const token = localStorage.getItem(ACCESS_TOKEN)
         // Check token
         if (!token) {
-            Alert.error('You must login before submit')
             navigate('/login')
             return;
         }

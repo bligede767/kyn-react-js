@@ -6,7 +6,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom'
 import fbLogo from '../../img/fb-logo.png';
 import googleLogo from '../../img/google-logo.png';
 import githubLogo from '../../img/github-logo.png';
-import Alert from 'react-s-alert';
+
 
 const Login = (props) => {
     console.log(props)
@@ -19,9 +19,6 @@ const Login = (props) => {
         // Here we display the error and then remove the error query parameter from the location.
         if (location.state && location.state.error) {
             setTimeout(() => {
-                Alert.error(location.state.error, {
-                    timeout: 5000
-                });
                 this.props.history.replace({
                     pathname: location.pathname,
                     state: {}
@@ -98,10 +95,8 @@ class LoginForm extends Component {
         login(loginRequest)
             .then(response => {
                 localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-                Alert.success("You're successfully logged in!");
                 this.props.history.push("/");
             }).catch(error => {
-                Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
             });
     }
 

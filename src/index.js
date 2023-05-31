@@ -4,10 +4,25 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import registerServiceWorker from './registerServiceWorker';
+import { Provider as AlertProvider } from 'react-alert'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const AlertTemplate = ({ style, options, message, close }) => (
+  <div style={{ backgroundColor: 'white', padding: '20px' }}>
+    {options.type === 'info' && '!'}
+    {options.type === 'success' && ':)'}
+    {options.type === 'error' && ':('}
+    {message}
+    <button onClick={close}>X</button>
+  </div>
+)
+
 root.render(
   <React.StrictMode>
-    <App />
+    <AlertProvider template={AlertTemplate}>
+      <App />
+    </AlertProvider>
   </React.StrictMode>
 );
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { MyContext } from "./MyContext";
 import { Link, useNavigate } from 'react-router-dom';
 import Card from '../components/Card'
-import Alert from 'react-s-alert';
+
 import { ACCESS_TOKEN } from '../constants';
 
 
@@ -19,7 +19,6 @@ export default function Home() {
         const token = localStorage.getItem(ACCESS_TOKEN)
         // Check token
         if (!token) {
-            Alert.error('You must login before submit')
             navigate('/login')
             return;
         }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import Alert from 'react-s-alert';
+
 import { ACCESS_TOKEN } from '../constants';
 
 export default function SaveCar() {
@@ -24,7 +24,6 @@ export default function SaveCar() {
     e.preventDefault();
     const token = localStorage.getItem(ACCESS_TOKEN)
     if (!token) {
-      Alert.error('You must login before submit')
       navigate('/login')
       return;
     }

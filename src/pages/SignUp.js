@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 // import './Signup.css';
 import { Link, Navigate } from 'react-router-dom'
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../constants';
+import { FACEBOOK_AUTH_URL } from '../constants';
 import { signup } from '../util/APIUtils';
 import fbLogo from '../img/fb-logo.png';
-import googleLogo from '../img/google-logo.png';
-import githubLogo from '../img/github-logo.png';
-import Alert from 'react-s-alert';
+import {
+    useAlert
+} from 'react-alert'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = (props) => {
-    console.log(props)
+
+    const alert = useAlert()
+    const navigate = useNavigate();
+
     if (props.authenticated) {
         return <Navigate
             to={{
@@ -26,7 +30,14 @@ const SignUp = (props) => {
                 <div className="or-separator">
                     <span className="or-text">OR</span>
                 </div>
-                <SignupForm {...props} />
+                <SignupForm {...props}
+                    onSuccess={(msg) => {
+                        alert.success(msg)
+                        navigate('/login')
+                    }} onFailed={(msg) => {
+                        alert.error(msg)
+                    }}
+                />
                 <span className="login-link">Already have an account? <Link to="/login">Login!</Link></span>
             </div>
         </div>
@@ -72,30 +83,30 @@ class SignupForm extends Component {
 
         signup(signUpRequest)
             .then(response => {
-                Alert.success("You're successfully registered. Please login to continue!");
-                this.props.data.history.push("/login");
+                this.props.onSuccess("You're successfully registered. Please login to continue!");
             }).catch(error => {
-                Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
+                this.props.onFailed((error && error.message) || 'Oops! Something went wrong. Please try again!');
             });
     }
 
     render() {
+
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-item">
                     <input type="text" name="name"
                         className="form-control" placeholder="Name"
-                        value={this.state.name} onChange={this.handleInputChange} required />
+                        value={this.state.name} onChange={this.handleInputChange} />
                 </div>
                 <div className="form-item">
                     <input type="email" name="email"
                         className="form-control" placeholder="Email"
-                        value={this.state.email} onChange={this.handleInputChange} required />
+                        value={this.state.email} onChange={this.handleInputChange} />
                 </div>
                 <div className="form-item">
                     <input type="password" name="password"
                         className="form-control" placeholder="Password"
-                        value={this.state.password} onChange={this.handleInputChange} required />
+                        value={this.state.password} onChange={this.handleInputChange} />
                 </div>
                 <div className="form-item">
                     <button type="submit" className="btn btn-block btn-primary" >Sign Up</button>

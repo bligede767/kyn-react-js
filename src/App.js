@@ -14,7 +14,6 @@ import SignUp from './pages/SignUp'
 import { ACCESS_TOKEN } from './constants'
 import { getCurrentUser } from './util/APIUtils'
 import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
-import Alert from 'react-s-alert';
 import Profile from './user/profile/Profile'
 
 class App extends Component {
@@ -51,7 +50,6 @@ class App extends Component {
       authenticated: false,
       currentUser: null
     });
-    Alert.error("You're safely logged out!");
   }
 
   componentDidMount() {
@@ -68,7 +66,7 @@ class App extends Component {
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
-                <Route path="/profile"  element={<Profile data={this.state} />} />
+                <Route path="/profile" element={<Profile data={this.state} />} />
                 <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
                 <Route path="/addcar" element={<AddCar />} />
                 <Route path="/viewCar/:cid" element={<ViewCar />} />
