@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Alert from 'react-s-alert';
+import { ACCESS_TOKEN } from '../constants';
 
 export default function SaveCar() {
   let navigate = useNavigate();
@@ -20,7 +22,19 @@ export default function SaveCar() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/rest/saveCar", car);
+    const token = localStorage.getItem(ACCESS_TOKEN)
+    if (!token) {
+      Alert.error('You must login before submit')
+      navigate('/login')
+      return;
+    }
+
+    const headers = {
+      headers: {
+        Authorization: 'Bearer ' + token //the token is a variable which holds the token
+      }
+    };
+    await axios.post("http://localhost:8080/car/save-car", car, headers);
     navigate("/");
   };
 

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Alert from 'react-s-alert';
+import { ACCESS_TOKEN } from '../constants';
 
 export default function ViewCar() {
+    const navigate = useNavigate();
     const [car, setCar] = useState({
         carName: "",
         model: "",
@@ -17,7 +20,20 @@ export default function ViewCar() {
     }, [cid]);
 
     const loadCar = async () => {
-        const result = await axios.get(`http://localhost:8080/rest/viewCar?cid=${cid}`);
+        const token = localStorage.getItem(ACCESS_TOKEN)
+        // Check token
+        if (!token) {
+            Alert.error('You must login before submit')
+            navigate('/login')
+            return;
+        }
+
+        const headers = {
+            headers: {
+                Authorization: 'Bearer ' + token //the token is a variable which holds the token
+            }
+        };
+        const result = await axios.get(`http://localhost:8080/car/viewCar?cid=${cid}`, headers);
         setCar(result.data);
     }
     return (

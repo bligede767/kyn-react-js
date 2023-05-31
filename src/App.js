@@ -15,7 +15,7 @@ import SignUp from './pages/SignUp'
 import { ACCESS_TOKEN } from './constants'
 import { getCurrentUser } from './util/APIUtils'
 import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
-// import Alert from 'react-s-alert';
+import Alert from 'react-s-alert';
 class App extends Component {
   constructor (props) {
     super(props);
@@ -50,7 +50,7 @@ class App extends Component {
       authenticated: false,
       currentUser: null
     });
-    // Alert.error("You're safely logged out!");
+    Alert.error("You're safely logged out!");
   }
 
   componentDidMount() {
@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <div className="App wrapper">
         <Router>
-          <MySidebar />
+          <MySidebar authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
           <div className="main_content">
             <div className="container ">
               <Routes>

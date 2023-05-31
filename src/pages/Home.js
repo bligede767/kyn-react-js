@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-// import { Link, useParams } from "react-router-dom";
 // import { MyContext } from "./MyContext";
+import { Link, useNavigate } from 'react-router-dom';
 import Card from '../components/Card'
+import Alert from 'react-s-alert';
+import { ACCESS_TOKEN } from '../constants';
 
 
 export default function Home() {
+    const navigate = useNavigate();
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
@@ -14,7 +16,20 @@ export default function Home() {
     }, []);
 
     const loadCars = async () => {
-        const result = await axios.get("http://localhost:8080/rest/cars")
+        const token = localStorage.getItem(ACCESS_TOKEN)
+        // Check token
+        if (!token) {
+            Alert.error('You must login before submit')
+            navigate('/login')
+            return;
+        }
+
+        const headers = {
+            headers: {
+                Authorization: 'Bearer ' + token //the token is a variable which holds the token
+            }
+        };
+        const result = await axios.get("http://localhost:8080/car/cars", headers)
         setCars(result.data);
     }
     return (

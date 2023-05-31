@@ -1,9 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Card from '../components/Card'
+import Alert from 'react-s-alert';
+import { ACCESS_TOKEN } from '../constants';
 
 export default function SearchCars() {
+    const navigate = useNavigate();
     const [cars, setCars] = useState([]);
 
     const { filter, q, min, max } = useParams();
@@ -14,28 +17,40 @@ export default function SearchCars() {
     }, [filter, q, min, max])
 
     const loadSearchedCars = async () => {
-        let result = await axios.get("http://localhost:8080/rest/cars");
+        const token = localStorage.getItem(ACCESS_TOKEN)
+        if (!token) {
+            Alert.error('You must login before submit')
+            navigate('/login')
+            return;
+        }
+        
+        const headers = {
+            headers: {
+                Authorization: 'Bearer ' + token //the token is a variable which holds the token
+            }
+        };
+        let result = await axios.get("http://localhost:8080/car/cars", headers);
         const keyword = encodeURI(q);
         if (filter === "carname") {
             console.log(`search by carname: ${q}`);
-            result = await axios.get(`http://localhost:8080/rest/search?by=carName&keyword=${q}`)
+            result = await axios.get(`http://localhost:8080/car/search?by=carName&keyword=${q}`, headers)
         }
         else if (filter === "model") {
             console.log(`search by model: ${q}`);
-            result = await axios.get(`http://localhost:8080/rest/search?by=model&keyword=${q}`)
+            result = await axios.get(`http://localhost:8080/car/search?by=model&keyword=${q}`, headers)
         }
         else if (filter === "makeyear") {
             console.log(`search by make year: ${q}`);
-            result = await axios.get(`http://localhost:8080/rest/search?by=makeYear&keyword=${q}`)
+            result = await axios.get(`http://localhost:8080/car/search?by=makeYear&keyword=${q}`, headers)
         }
         else if (filter === "price") {
             console.log(`search by price: min: ${min} max: ${max}`);
             if (min != null && max == null) {
-                result = await axios.get(`http://localhost:8080/rest/search?by=price&min=${min}`)
+                result = await axios.get(`http://localhost:8080/car/search?by=price&min=${min}`, headers)
             } else if (min == null && max != null) {
-                result = await axios.get(`http://localhost:8080/rest/search?by=price&max=${max}`)
+                result = await axios.get(`http://localhost:8080/car/search?by=price&max=${max}`, headers)
             } else if (min !== null && max !== null) {
-                result = await axios.get(`http://localhost:8080/rest/search?by=price&min=${min}&max=${max}`)
+                result = await axios.get(`http://localhost:8080/car/search?by=price&min=${min}&max=${max}`, headers)
             }
         }
         console.log(result.data);

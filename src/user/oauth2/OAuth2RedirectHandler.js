@@ -18,7 +18,7 @@ const OAuth2RedirectHandler = () => {
     if (token) {
         localStorage.setItem(ACCESS_TOKEN, token);
         return <Navigate to={{
-            pathname: "/profile",
+            pathname: "/",
             state: { from: location }
         }} />;
     } else {
