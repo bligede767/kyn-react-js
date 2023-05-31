@@ -14,6 +14,7 @@ export default function MySidebar() {
         <li><Link to="/login"><i class="fas fa-home"></i>Login</Link></li>
         <li><Link to="/signup"><i class="fas fa-home"></i>Sign Up</Link></li>
         <li><i class="fas fa-project-diagram"></i><SearchBar /></li>
+        <li><Link to="#"><i class="fas fa-home"></i>Log Out</Link></li>
       </ul>
     </div>
   )
