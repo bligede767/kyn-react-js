@@ -43,7 +43,7 @@ const SearchBar = () => {
         } else if (filter == "model") {
             navigate(`/search/by/model/q/${modelKeyword}`);
         } else if (filter == "makeyear") {
-            navigate(`/search/by/makeyear/q/${makeYearKeyword}`);
+            navigate(`/search/by/makeyear/year/${makeYearKeyword}`);
         } else if (filter == "price") {
             if (min != '' && max == '') {
                 navigate(`/search/by/price/min/${min}`);

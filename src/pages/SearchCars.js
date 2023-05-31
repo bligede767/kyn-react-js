@@ -41,7 +41,7 @@ export default function SearchCars() {
         }
         else if (filter === "makeyear") {
             console.log(`search by make year: ${q}`);
-            result = await axios.get(`http://localhost:8080/car/search?by=makeYear&keyword=${q}`, headers)
+            result = await axios.get(`http://localhost:8080/car/search?by=makeYear&year=${q}`, headers)
         }
         else if (filter === "price") {
             console.log(`search by price: min: ${min} max: ${max}`);

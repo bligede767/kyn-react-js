@@ -73,6 +73,7 @@ class App extends Component {
                 <Route path="/addcar" element={<AddCar />} />
                 <Route path="/viewCar/:cid" element={<ViewCar />} />
                 <Route path="/search/by/:filter/q/:q" element={<SearchCars />} />
+                <Route path="/search/by/:filter/year/:q" element={<SearchCars />} />
                 <Route path="/search/by/:filter/min/:min" element={<SearchCars />} />
                 <Route path="/search/by/:filter/max/:max" element={<SearchCars />} />
                 <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
