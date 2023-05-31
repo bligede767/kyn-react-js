@@ -4,10 +4,9 @@ import Home from './pages/Home';
 import ViewCar from './pages/ViewCar'
 import MySidebar from "./components/MySidebar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-// import "../node_modules/bootstrap/dist/js/bootstrap.min.js"
 import SearchCars from './pages/SearchCars';
 import AddCar from './pages/AddCar'
 import Login from './pages/Login'
@@ -16,6 +15,8 @@ import { ACCESS_TOKEN } from './constants'
 import { getCurrentUser } from './util/APIUtils'
 import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
 import Alert from 'react-s-alert';
+import Profile from './user/profile/Profile'
+
 class App extends Component {
   constructor (props) {
     super(props);
@@ -60,20 +61,21 @@ class App extends Component {
     return (
       <div className="App wrapper">
         <Router>
-          <MySidebar authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+          <MySidebar authenticated={this.state.authenticated} onLogout={this.handleLogout} />
           <div className="main_content">
             <div className="container ">
               <Routes>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/signup" element={<SignUp />} />
-                <Route exact path="/addcar" element={<AddCar />} />
-                <Route exact path="/viewCar/:cid" element={<ViewCar />} />
-                <Route exact path="/search/by/:filter/q/:q" element={<SearchCars />} />
-                <Route exact path="/search/by/:filter/min/:min" element={<SearchCars />} />
-                <Route exact path="/search/by/:filter/max/:max" element={<SearchCars />} />
-                <Route exact path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
+                {/* <Route path="/profile" element={<Profile data={this.state} />} /> */}
+                <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
+                <Route path="/addcar" element={<AddCar />} />
+                <Route path="/viewCar/:cid" element={<ViewCar />} />
+                <Route path="/search/by/:filter/q/:q" element={<SearchCars />} />
+                <Route path="/search/by/:filter/min/:min" element={<SearchCars />} />
+                <Route path="/search/by/:filter/max/:max" element={<SearchCars />} />
+                <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
               </Routes>
             </div>
           </div>
