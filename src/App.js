@@ -11,6 +11,7 @@ import SearchCars from './pages/SearchCars';
 import AddCar from './pages/AddCar'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
+import SendMessage from './pages/SendMessage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/" element={<Home />} />
               <Route exact path="/addcar" element={<AddCar />} />
+              <Route exact path="/message" element={<SendMessage />} />
               <Route exact path="/viewCar/:cid" element={<ViewCar />} />
               <Route exact path="/search/by/:filter/q/:q" element={<SearchCars />} />
               <Route exact path="/search/by/:filter/min/:min" element={<SearchCars />} />

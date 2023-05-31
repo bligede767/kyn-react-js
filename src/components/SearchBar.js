@@ -37,7 +37,6 @@ const SearchBar = () => {
         }
 
         if (filter == "carname") {
-            console.log(`car name: ${filter} ${carNameKeyword}`)
             navigate(`/search/by/carname/q/${carNameKeyword}`);
             // navigate(`/`);
         } else if (filter == "model") {
