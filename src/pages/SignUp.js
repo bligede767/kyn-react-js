@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 // import './Signup.css';
 import { Link, Navigate } from 'react-router-dom'
-import { FACEBOOK_AUTH_URL } from '../constants';
+import { FACEBOOK_AUTH_URL, GOOGLE_AUTH_URL } from '../constants';
 import { signup } from '../util/APIUtils';
 import fbLogo from '../img/fb-logo.png';
+import googleLogo from '../img/fb-logo.png';
 import {
     useAlert
 } from 'react-alert'
@@ -48,6 +49,8 @@ const SignUp = (props) => {
 const SocialSignup = () => {
     return (
         <div className="social-signup">
+             <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
+                    <img src={googleLogo} alt="Google" /> Log in with Google</a>
             <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
                 <img src={fbLogo} alt="Facebook" /> Sign up with Facebook</a>
         </div>
@@ -59,6 +62,7 @@ class SignupForm extends Component {
         super(props);
         this.state = {
             name: '',
+            username: '',
             email: '',
             password: ''
         }
@@ -97,6 +101,11 @@ class SignupForm extends Component {
                     <input type="text" name="name"
                         className="form-control" placeholder="Name"
                         value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+                <div className="form-item">
+                    <input type="text" name="username"
+                        className="form-control" placeholder="Username"
+                        value={this.state.username} onChange={this.handleInputChange} />
                 </div>
                 <div className="form-item">
                     <input type="email" name="email"
