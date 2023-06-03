@@ -45,7 +45,7 @@ export default function SaveCar() {
       </div>
       <form onSubmit={(e) => onSubmit(e)} className="row g-3">
         <div className="col-md-12">
-          <label for="carName" class="form-label">Car Name</label>
+          <label for="carName" className="form-label">Car Name</label>
           <input
             type={"text"}
             className="form-control"
@@ -55,7 +55,7 @@ export default function SaveCar() {
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">
-          <label for="model" class="form-label">Model</label>
+          <label for="model" className="form-label">Model</label>
           <input
             type={"text"}
             className="form-control"
@@ -65,7 +65,7 @@ export default function SaveCar() {
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">
-          <label for="makeYear" class="form-label">Make Year</label>
+          <label for="makeYear" className="form-label">Make Year</label>
           <input
             type={"text"}
             className="form-control"
@@ -75,7 +75,7 @@ export default function SaveCar() {
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">
-          <label for="price" class="form-label">Price</label>
+          <label for="price" className="form-label">Price</label>
           <input
             type={"text"}
             className="form-control"
@@ -84,7 +84,7 @@ export default function SaveCar() {
             value={price}
             onChange={(e) => onInputChange(e)} required />
         </div>
-        <div class="col-12">
+        <div className="col-12">
           <button type='submit' className='btn btn-primary' >Submit</button>
         </div>
       </form>

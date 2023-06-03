@@ -15,6 +15,7 @@ import { ACCESS_TOKEN } from './constants'
 import { getCurrentUser } from './util/APIUtils'
 import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
 import Profile from './user/profile/Profile'
+import UserManagement from './admin/UserManagement';
 
 class App extends Component {
   constructor (props) {
@@ -64,6 +65,7 @@ class App extends Component {
             <div className="container ">
               <Routes>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
+                <Route path="/admin/users" element={<UserManagement />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
                 <Route path="/profile" element={<Profile data={this.state} />} />

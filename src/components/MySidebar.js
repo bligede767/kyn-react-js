@@ -1,24 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
+import useProfile from '../util/UserInfo';
 
 export default function MySidebar(props) {
+  const { token, profile } = useProfile();
+
+  // console.log(profile?.role)
   return (
-    <div class="sidebar">
+    <div className="sidebar">
       <Link to="/">
         <h2>XYZ Car</h2>
       </Link>
       <ul>
-        {props.authenticated ?
-          <li><Link to="/profile"><i class="fas fa-home"></i>Profile</Link></li>
+        {token ?
+          <li><Link to="/"><i className="fas fa-home"></i>Home</Link></li>
           : <></>}
-        {!props.authenticated ?
-          <li><Link to="/login"><i class="fas fa-home"></i>Login</Link></li> : <></>}
-        {props.authenticated ?
-          <li><i class="fas fa-project-diagram"></i><SearchBar /></li>
+        {(token && profile?.role === 'ROLE_ADMIN') ?
+          <li><Link to="/admin/users"><i className="fas fa-home"></i>Admin</Link></li>
           : <></>}
-        {props.authenticated ?
-          <li><Link onClick={props.onLogout}><i class="fas fa-home"></i>Log Out</Link></li>
+        {token ?
+          <li><Link to="/profile"><i className="fas fa-home"></i>Profile</Link></li>
+          : <></>}
+        {!token ?
+          <li><Link to="/login"><i className="fas fa-home"></i>Login</Link></li> : <></>}
+        {token ?
+          <li><i className="fas fa-project-diagram"></i><SearchBar /></li>
+          : <></>}
+        {token ?
+          <li><Link onClick={props.onLogout}><i className="fas fa-home"></i>Log Out</Link></li>
           : <></>}
       </ul>
     </div>
