@@ -58,8 +58,8 @@ const SocialLogin = () => {
 
     return (
         <div className="social-login">
-             <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                    <img src={googleLogo} alt="Google" /> Log in with Google</a>
+            <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
+                <img src={googleLogo} alt="Google" /> Log in with Google</a>
             <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
                 <img src={fbLogo} alt="Facebook" /> Log in with Facebook</a>
         </div>
@@ -71,7 +71,7 @@ class LoginForm extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            username: '',
+            email: '',
             password: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -107,9 +107,9 @@ class LoginForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-item">
-                    <input type="text" name="username"
-                        className="form-control" placeholder="Username"
-                        value={this.state.username} onChange={this.handleInputChange} required />
+                    <input type="email" name="email"
+                        className="form-control" placeholder="Email"
+                        value={this.state.email} onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
                     <input type="password" name="password"
