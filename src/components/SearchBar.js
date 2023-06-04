@@ -137,7 +137,7 @@ const SearchBar = () => {
                     </div>
                 </div>
             )}
-            <button type="submit" className='btn btn-light'>Search</button>
+            <button id='search-submit-button' type="submit" className='btn btn-light'>Search</button>
 
         </form>
     )

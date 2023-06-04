@@ -46,11 +46,16 @@ class App extends Component {
   }
 
   handleLogout() {
-    localStorage.removeItem(ACCESS_TOKEN);
-    this.setState({
-      authenticated: false,
-      currentUser: null
-    });
+    try {
+      localStorage.removeItem(ACCESS_TOKEN);
+      this.setState({
+        authenticated: false,
+        currentUser: null
+      });
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 
   componentDidMount() {

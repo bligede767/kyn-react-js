@@ -1,10 +1,11 @@
 import React, { Component, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import SearchBar from './SearchBar'
 import useProfile from '../util/UserInfo';
 
 export default function MySidebar(props) {
   const { token, profile } = useProfile();
+  const navigate = useNavigate();
 
   // console.log(profile?.role)
   return (
@@ -28,7 +29,12 @@ export default function MySidebar(props) {
           <li><i className="fas fa-project-diagram"></i><SearchBar /></li>
           : <></>}
         {token ?
-          <li><Link onClick={props.onLogout}><i className="fas fa-home"></i>Log Out</Link></li>
+          <li><Link to="/login" onClick={() => {
+            const isLogout = props?.onLogout()
+            if (isLogout) {
+              navigate('/login', { replace: true });
+            }
+          }}><i className="fas fa-home"></i>Log Out</Link></li>
           : <></>}
       </ul>
     </div>

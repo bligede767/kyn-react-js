@@ -65,6 +65,7 @@ export default function UserManagement() {
               <th>Name</th>
               <th>Username</th>
               <th>Email</th>
+              <th>Provider</th>
               <th>Role</th>
               <th>Actions</th>
             </tr>
@@ -77,14 +78,16 @@ export default function UserManagement() {
                   <td>{user.name}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
+                  <td>{user.provider}</td>
                   <td>{user.role}</td>
                   <td>
                     <div className='d-flex'>
                       <button className='btn btn-light mx-2'><Link>View</Link></button>
+
                       {
                         user.role == 'ROLE_USER' ?
-                          <div>
-                            edit
+                          <div className='d-flex'>
+                            <button className='btn btn-light mx-2'><Link>Edit</Link></button>
                             <button className='btn btn-danger mx-2' onClick={() => confirmDelete(user.id, user.name)}>Delete</button>
                           </div> : <></>
                       }

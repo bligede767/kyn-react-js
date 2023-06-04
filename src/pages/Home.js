@@ -40,7 +40,7 @@ export default function Home() {
             <div className='cards'>
                 {
                     cars.map((car, index) => (
-                        <Card carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                        <Card key={index} carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
                     ))
                 }
             </div>

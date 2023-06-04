@@ -225,6 +225,10 @@ body {
   width: 90% !important;
 }
 
+#search-submit-button {
+  margin-top: 20px !important;
+}
+
 /* ====== Login Styling ====== */
 .login-container {
   text-align: center;
@@ -239,7 +243,7 @@ body {
   display: inline-block;
   margin-top: 30px;
   vertical-align: middle;
-  position: relative;    
+  position: relative;
   padding: 35px;
 }
 
@@ -296,7 +300,7 @@ body {
   display: inline-block;
   margin-top: 30px;
   vertical-align: middle;
-  position: relative;    
+  position: relative;
   padding: 35px;
 }
 
