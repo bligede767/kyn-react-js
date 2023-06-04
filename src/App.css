@@ -342,3 +342,30 @@ body {
   margin-bottom: 30px;
   color: rgba(0, 0, 0, 0.65);
 }
+
+/* ====== User Page Styling ====== */
+.profile-bg {
+  border-radius: 10px;
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/back_pic/04/24/66/495836a65fcb8f9.jpg');
+  background-size: cover;
+}
+
+.profile-bg div {
+  height: min-content;
+}
+
+.user-detail {
+  padding: 10px;
+}
+
+.user-detail img {
+  border-radius: 15px;
+}
+
+.user-detail {
+  padding: 15px;
+}
+
+.information {
+  margin-left: 20px;
+}

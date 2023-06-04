@@ -18,6 +18,7 @@ import Profile from './user/profile/Profile'
 import UserManagement from './admin/UserManagement';
 import EditUserProfile from './components/EditUserProfile'
 import EditOwnProfile from './components/EditOwnProfile'
+import UserDetails from './pages/UserDetails'
 
 class App extends Component {
   constructor (props) {
@@ -76,6 +77,7 @@ class App extends Component {
                 <Route path="/admin/users" element={<UserManagement />} />
                 <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
 
+                <Route path="/user/:id" element={<UserDetails />} />
                 <Route path="/profile" element={<Profile data={this.state} />} />
                 <Route path="/profile/update" element={<EditOwnProfile data={this.state} />} />
 

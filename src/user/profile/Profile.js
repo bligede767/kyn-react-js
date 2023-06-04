@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './Profile.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Profile = (props) => {
     const { data } = props;
     const { authenticated, currentUser } = data;
     console.log(data)
+    const navigate = useNavigate();
     if (authenticated) {
         return (
             <div>
@@ -30,7 +31,7 @@ const Profile = (props) => {
             </div>
         );
     } else {
-        return <Navigate to={'/login'} />
+        navigate("/login")
     }
 }
 

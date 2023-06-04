@@ -82,12 +82,12 @@ export default function UserManagement() {
                   <td>{user.role?.replaceAll("_", " ")}</td>
                   <td>
                     <div className='d-flex'>
-                      <button className='btn btn-light mx-2'><Link>View</Link></button>
+                      <Link to={`/user/${user.id}`} className='btn btn-light mx-2'>👁 View</Link>
                       {
                         user.role == 'ROLE_USER' ?
                           <div className='d-flex'>
-                            <Link to={`/admin/update-user/${user.id}`} className='btn btn-light mx-2'>Edit</Link>
-                            <button className='btn btn-danger mx-2' onClick={() => confirmDelete(user.id, user.name)}>Delete</button>
+                            <Link to={`/admin/update-user/${user.id}`} className='btn btn-light mx-2'>✏️ Edit</Link>
+                            <button className='btn btn-danger mx-2' onClick={() => confirmDelete(user.id, user.name)}>🗑 Delete</button>
                           </div> : <></>
                       }
                     </div>
