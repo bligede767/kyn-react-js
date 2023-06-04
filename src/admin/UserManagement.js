@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ACCESS_TOKEN } from '../constants';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { API_BASE_URL } from '../constants';
 export default function UserManagement() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
@@ -24,7 +24,7 @@ export default function UserManagement() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    const result = await axios.get("http://localhost:8080/admin/users", headers)
+    const result = await axios.get("API_BASE_URL/admin/users", headers)
     setUsers(result.data);
   }
 
@@ -41,7 +41,7 @@ export default function UserManagement() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    await axios.delete(`http://localhost:8080/admin/delete/${id}`, headers);
+    await axios.delete(`${API_BASE_URL}/admin/delete/${id}`, headers);
     loadUsers();
   }
   const confirmDelete = (id, name) => {

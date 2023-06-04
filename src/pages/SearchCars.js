@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Card from '../components/Card'
 
 import { ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL } from '../constants';
 
 export default function SearchCars() {
     const navigate = useNavigate();
@@ -28,28 +29,28 @@ export default function SearchCars() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        let result = await axios.get("http://localhost:8080/car/cars", headers);
+        let result = await axios.get(`${API_BASE_URL}/car/cars`, headers);
         const keyword = encodeURI(q);
         if (filter === "carname") {
             console.log(`search by carname: ${q}`);
-            result = await axios.get(`http://localhost:8080/car/search?by=carName&keyword=${q}`, headers)
+            result = await axios.get(`${API_BASE_URL}/car/search?by=carName&keyword=${q}`, headers)
         }
         else if (filter === "model") {
             console.log(`search by model: ${q}`);
-            result = await axios.get(`http://localhost:8080/car/search?by=model&keyword=${q}`, headers)
+            result = await axios.get(`${API_BASE_URL}/car/search?by=model&keyword=${q}`, headers)
         }
         else if (filter === "makeyear") {
             console.log(`search by make year: ${q}`);
-            result = await axios.get(`http://localhost:8080/car/search?by=makeYear&year=${q}`, headers)
+            result = await axios.get(`${API_BASE_URL}/car/search?by=makeYear&year=${q}`, headers)
         }
         else if (filter === "price") {
             console.log(`search by price: min: ${min} max: ${max}`);
             if (min != null && max == null) {
-                result = await axios.get(`http://localhost:8080/car/search?by=price&min=${min}`, headers)
+                result = await axios.get(`${API_BASE_URL}/car/search?by=price&min=${min}`, headers)
             } else if (min == null && max != null) {
-                result = await axios.get(`http://localhost:8080/car/search?by=price&max=${max}`, headers)
+                result = await axios.get(`${API_BASE_URL}/car/search?by=price&max=${max}`, headers)
             } else if (min !== null && max !== null) {
-                result = await axios.get(`http://localhost:8080/car/search?by=price&min=${min}&max=${max}`, headers)
+                result = await axios.get(`${API_BASE_URL}/car/search?by=price&min=${min}&max=${max}`, headers)
             }
         }
         console.log(result.data);

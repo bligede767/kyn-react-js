@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL } from '../constants';
 
 export default function ViewCar() {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function ViewCar() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`http://localhost:8080/car/viewCar?cid=${cid}`, headers);
+        const result = await axios.get(`${API_BASE_URL}/car/viewCar?cid=${cid}`, headers);
         setCar(result.data);
     }
     return (

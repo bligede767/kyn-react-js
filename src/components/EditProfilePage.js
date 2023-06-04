@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link, useLocation } from 'react-router-dom'
 
 import { ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL } from '../constants';
 export default function EditProfileModal() {
     let navigate = useNavigate();
 
@@ -31,7 +32,7 @@ export default function EditProfileModal() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        await axios.put(`http://localhost:8080/admin/update-user/${id}`, user, headers);
+        await axios.put(`${API_BASE_URL}/admin/update-user/${id}`, user, headers);
         navigate("/admin/users");
     };
 
@@ -54,7 +55,7 @@ export default function EditProfileModal() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`http://localhost:8080/user/details/${id}`, headers);
+        const result = await axios.get(`${API_BASE_URL}/user/details/${id}`, headers);
         setUser(result.data);
     }
 

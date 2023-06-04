@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
 import { ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL } from '../constants';
 
 export default function SaveCar() {
   let navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function SaveCar() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    await axios.post("http://localhost:8080/car/save-car", car, headers);
+    await axios.post(`${API_BASE_URL}/car/save-car`, car, headers);
     navigate("/");
   };
 

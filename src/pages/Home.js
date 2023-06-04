@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Card from '../components/Card'
 
 import { ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL } from '../constants';
 
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get("http://localhost:8080/car/cars", headers)
+        const result = await axios.get(`${API_BASE_URL}/car/cars`, headers)
         setCars(result.data);
     }
     return (
