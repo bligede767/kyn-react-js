@@ -1,43 +1,29 @@
-.profile-container {
-    padding-top: 30px;
+.profile-bg {
+    border-radius: 10px;
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/back_pic/04/24/66/495836a65fcb8f9.jpg');
+    background-size: cover;
 }
 
-.profile-info {
-    text-align: center;
+.profile-bg div {
+    height: min-content;
 }
 
-.profile-info .profile-avatar img {
-    border-radius: 50%;
-    max-width: 250px;
+.user-detail {
+    padding: 10px;
 }
 
-.profile-info .profile-name {
-    font-weight: 500;
-    font-size: 18px;
+.user-detail img {
+    border-radius: 15px;
 }
 
-.profile-info .profile-email {
-    font-weight: 400;
+.user-detail {
+    padding: 15px;
 }
 
-.text-avatar {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    vertical-align: middle;
-    text-align: center;
-    border-radius: 50%;
-    background: #46b5e5;
-    background: linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
-    background-image: -ms-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
-    background-image: -moz-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
-    background-image: -o-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
-    background-image: -webkit-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
-    background-image: linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
+.information {
+    margin-left: 20px;
 }
 
-.text-avatar span {
-    line-height: 200px;
-    color: #fff;
-    font-size: 3em;
-}
+/* .heading .d-flex a {
+    padding: 0;
+} */

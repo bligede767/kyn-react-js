@@ -24,7 +24,7 @@ export default function UserManagement() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    const result = await axios.get("API_BASE_URL/admin/users", headers)
+    const result = await axios.get(`${API_BASE_URL}/admin/users`, headers)
     setUsers(result.data);
   }
 

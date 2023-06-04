@@ -11,7 +11,7 @@ export default function MySidebar(props) {
   return (
     <div className="sidebar">
       <Link to="/">
-        <h2>XYZ Car</h2>
+        <h2>🏠 KYN</h2>
       </Link>
       <ul>
         {token ?
