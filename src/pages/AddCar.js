@@ -40,7 +40,7 @@ export default function SaveCar() {
   return (
     <div>
       <div className='heading'>
-        <h1>Car List</h1>
+        <h1>Add Car</h1>
         <Link to={"/"} className='btn btn-dark'>❌ Cancel</Link>
       </div>
       <form onSubmit={(e) => onSubmit(e)} className="row g-3">

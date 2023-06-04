@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { ACCESS_TOKEN } from '../constants';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import ModalButton from '../components/ModalButton';
-import EditProfileModal from '../components/EditProfileModal';
 
 export default function UserManagement() {
   const navigate = useNavigate();
@@ -85,12 +83,10 @@ export default function UserManagement() {
                   <td>
                     <div className='d-flex'>
                       <button className='btn btn-light mx-2'><Link>View</Link></button>
-
                       {
                         user.role == 'ROLE_USER' ?
                           <div className='d-flex'>
-                            <ModalButton text="Edit" target="editUserProfile" />
-                            <EditProfileModal target="editUserProfile" />
+                            <Link to={`/admin/update-user/${user.id}`} className='btn btn-light mx-2'>Edit</Link>
                             <button className='btn btn-danger mx-2' onClick={() => confirmDelete(user.id, user.name)}>Delete</button>
                           </div> : <></>
                       }
