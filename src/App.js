@@ -16,7 +16,8 @@ import { getCurrentUser } from './util/APIUtils'
 import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
 import Profile from './user/profile/Profile'
 import UserManagement from './admin/UserManagement';
-import EditProfileModal from './components/EditProfilePage'
+import EditUserProfile from './components/EditUserProfile'
+import EditOwnProfile from './components/EditOwnProfile'
 
 class App extends Component {
   constructor (props) {
@@ -70,15 +71,21 @@ class App extends Component {
           <div className="main_content">
             <div className="container ">
               <Routes>
-                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
-                <Route path="/admin/users" element={<UserManagement />} />
-                <Route path="/admin/update-user/:id" element={<EditProfileModal />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
+
+                <Route path="/admin/users" element={<UserManagement />} />
+                <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
+
                 <Route path="/profile" element={<Profile data={this.state} />} />
+                <Route path="/profile/update" element={<EditOwnProfile data={this.state} />} />
+
+                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
                 <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
+                <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
+
                 <Route path="/addcar" element={<AddCar />} />
                 <Route path="/viewCar/:cid" element={<ViewCar />} />
+
                 <Route path="/search/by/:filter/q/:q" element={<SearchCars />} />
                 <Route path="/search/by/:filter/year/:q" element={<SearchCars />} />
                 <Route path="/search/by/:filter/min/:min" element={<SearchCars />} />

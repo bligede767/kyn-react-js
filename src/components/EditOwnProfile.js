@@ -4,7 +4,9 @@ import { useParams, useNavigate, Link, useLocation } from 'react-router-dom'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
-export default function EditProfileModal() {
+export default function EditUserProfile(props) {
+    const { data } = props;
+    const { currentUser } = data;
     let navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -32,15 +34,14 @@ export default function EditProfileModal() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        await axios.put(`${API_BASE_URL}/admin/update-user/${id}`, user, headers);
-        navigate("/admin/users");
+        await axios.put(`${API_BASE_URL}/user/update`, user, headers);
+        navigate("/profile");
     };
 
-    const { id } = useParams();
 
     useEffect(() => {
         loadUserDetail();
-    }, [id]);
+    }, [currentUser.id]);
 
     const loadUserDetail = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
@@ -55,7 +56,7 @@ export default function EditProfileModal() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`${API_BASE_URL}/user/details/${id}`, headers);
+        const result = await axios.get(`${API_BASE_URL}/user/details/${currentUser.id}`, headers);
         setUser(result.data);
     }
 
@@ -63,9 +64,8 @@ export default function EditProfileModal() {
     return (
         <div>
             <div className='heading'>
-                <h1>Update Profile</h1>
-                <h2>ID: {id} | {name}</h2>
-                <Link to={"/admin/users"} className='btn btn-dark'>❌ Cancel</Link>
+                <h1>Updating Your Profile</h1>
+                <Link to={"/profile"} className='btn btn-dark'>❌ Cancel</Link>
             </div>
             <form onSubmit={(e) => onSubmit(e)} className="row g-3">
                 <div className="col-md-12">
