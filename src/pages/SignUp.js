@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import './Signup.css';
 import { Link, Navigate } from 'react-router-dom'
-import { FACEBOOK_AUTH_URL, GOOGLE_AUTH_URL } from '../constants';
+import { FACEBOOK_AUTH_URL } from '../constants';
 import { signup } from '../util/APIUtils';
 import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/fb-logo.png';
