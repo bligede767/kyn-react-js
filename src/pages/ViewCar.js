@@ -36,6 +36,7 @@ export default function ViewCar() {
         const result = await axios.get(`${API_BASE_URL}/car/viewCar?cid=${cid}`, headers);
         setCar(result.data);
     }
+    console.log(car.user)
     return (
         <div>
             <div className="heading">

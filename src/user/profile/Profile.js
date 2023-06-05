@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './Profile.css';
 import { Link, useNavigate } from 'react-router-dom';
+import useProfile from '../../util/UserInfo';
 
 const Profile = (props) => {
+    const { profile } = useProfile();
     const { data } = props;
     const { authenticated, currentUser } = data;
     console.log(data)
@@ -21,9 +23,9 @@ const Profile = (props) => {
                             <img src="https://images.vexels.com/content/145908/preview/male-avatar-maker-2a7919.png"
                                 alt="" style={{ width: "200px" }} />
                             <div className="information">
-                                <h3>{currentUser.name}</h3>
-                                <div>👤 Username: {currentUser.username}</div>
-                                <div>✉️ Email: {currentUser.email}</div>
+                                <h3>{profile?.name}</h3>
+                                <div>👤 Username: {profile?.username}</div>
+                                <div>✉️ Email: {profile?.email}</div>
                             </div>
                         </div>
                     </div>

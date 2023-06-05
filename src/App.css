@@ -20,6 +20,10 @@ body {
 }
 
 /* ====== MySidebar Styling ====== */
+.sidebar a {
+  text-decoration: none;
+}
+
 .wrapper .sidebar {
   width: 260px;
   height: 100%;

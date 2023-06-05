@@ -4,8 +4,10 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
+import useProfile from '../util/UserInfo';
 
 const UserDetails = () => {
+    const { token, profile } = useProfile();
     const navigate = useNavigate();
     const [user, setUser] = useState({
         name: "",
@@ -35,11 +37,15 @@ const UserDetails = () => {
         const result = await axios.get(`${API_BASE_URL}/user/details/${id}`, headers);
         setUser(result.data);
     }
+    console.log(user.cars);
     return (
         <div>
             <div className='heading d-flex'>
                 <h1>User Details</h1>
-                <Link to={`/admin/update-user/${user.id}`} >Edit</Link>
+                {profile?.role === 'ROLE_ADMIN' ?
+                    <Link to={`/admin/update-user/${user.id}`} >Edit</Link>
+                    : <></>
+                }
             </div>
             <div className='profile-bg' >
                 <div className="profile-content text-white ">
