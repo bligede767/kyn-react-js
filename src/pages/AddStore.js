@@ -10,12 +10,12 @@ export default function SaveStore() {
 
   const [store, setStore] = useState({
     storeName: "",
-    model: "",
-    makeYear: "",
-    price: "",
+    city: "",
+    country: "",
+    phone: ""
   });
 
-  const { storeName, model, makeYear, price } = store;
+  const { storeName, city, country, phone } = store;
 
   const onInputChange = (e) => {
     setStore({ ...store, [e.target.name]: e.target.value });
@@ -56,33 +56,33 @@ export default function SaveStore() {
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">
-          <label for="model" className="form-label">Model</label>
+          <label for="city" className="form-label">City</label>
           <input
             type={"text"}
             className="form-control"
-            placeholder="Enter model"
-            name="model"
-            value={model}
+            placeholder="Enter city"
+            name="city"
+            value={city}
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">
-          <label for="makeYear" className="form-label">Make Year</label>
+          <label for="country" className="form-label">Country</label>
           <input
             type={"text"}
             className="form-control"
             placeholder="Enter make year"
-            name="makeYear"
-            value={makeYear}
+            name="country"
+            value={country}
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">
-          <label for="price" className="form-label">Price</label>
+          <label for="phone" className="form-label">Phone</label>
           <input
             type={"text"}
             className="form-control"
-            placeholder="Enter price"
-            name="price"
-            value={price}
+            placeholder="Enter phone"
+            name="phone"
+            value={phone}
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-12">

@@ -57,7 +57,7 @@ const UserDetails = () => {
                             <h3>{user.name}</h3>
                             <div>👤 Username: {user.username}</div>
                             <div>✉️ Email: {user.email}</div>
-                            <div>📱 Mobile: {user.mobile}</div>
+                            <div>📱 Phone: {user.phone}</div>
                             <div>🏙 City: {user.city}</div>
                             <div>🌎 Country: {user.country}</div>
                         </div>

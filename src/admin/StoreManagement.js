@@ -63,9 +63,9 @@ export default function StoreManagement() {
             <tr>
               <th>ID</th>
               <th>Store Name</th>
-              <th>Model</th>
-              <th>Make Year</th>
-              <th>Price</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>Phone</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -75,9 +75,9 @@ export default function StoreManagement() {
                 <tr key={index}>
                   <td>{store.id}</td>
                   <td>{store.storeName}</td>
-                  <td>{store.model}</td>
-                  <td>{store.makeYear}</td>
-                  <td>{store.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</td>
+                  <td>{store.city}</td>
+                  <td>{store.country}</td>
+                  <td>{store.phone.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</td>
                   <td>
                     <div className='d-flex'>
                       <Link to={`/viewStore/${store.id}`} className='btn btn-light mx-2'>👁 View</Link>

@@ -44,7 +44,7 @@ export default function Home() {
             <div className='contents'>
                 {
                     stores.map((store, index) => (
-                        <Content key={index} storeId={store.id} storeName={store.storeName} model={store.model} makeYear={store.makeYear} price={store.price} />
+                        <Content key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
                     ))
                 }
             </div>

@@ -35,22 +35,22 @@ export default function SearchStores() {
             console.log(`search by storename: ${q}`);
             result = await axios.get(`${API_BASE_URL}/store/search?by=storeName&keyword=${q}`, headers)
         }
-        else if (filter === "model") {
-            console.log(`search by model: ${q}`);
-            result = await axios.get(`${API_BASE_URL}/store/search?by=model&keyword=${q}`, headers)
+        else if (filter === "city") {
+            console.log(`search by city: ${q}`);
+            result = await axios.get(`${API_BASE_URL}/store/search?by=city&keyword=${q}`, headers)
         }
         else if (filter === "makeyear") {
             console.log(`search by make year: ${q}`);
-            result = await axios.get(`${API_BASE_URL}/store/search?by=makeYear&year=${q}`, headers)
+            result = await axios.get(`${API_BASE_URL}/store/search?by=country&year=${q}`, headers)
         }
-        else if (filter === "price") {
-            console.log(`search by price: min: ${min} max: ${max}`);
+        else if (filter === "phone") {
+            console.log(`search by phone: min: ${min} max: ${max}`);
             if (min != null && max == null) {
-                result = await axios.get(`${API_BASE_URL}/store/search?by=price&min=${min}`, headers)
+                result = await axios.get(`${API_BASE_URL}/store/search?by=phone&min=${min}`, headers)
             } else if (min == null && max != null) {
-                result = await axios.get(`${API_BASE_URL}/store/search?by=price&max=${max}`, headers)
+                result = await axios.get(`${API_BASE_URL}/store/search?by=phone&max=${max}`, headers)
             } else if (min !== null && max !== null) {
-                result = await axios.get(`${API_BASE_URL}/store/search?by=price&min=${min}&max=${max}`, headers)
+                result = await axios.get(`${API_BASE_URL}/store/search?by=phone&min=${min}&max=${max}`, headers)
             }
         }
         console.log(result.data);
@@ -66,7 +66,7 @@ export default function SearchStores() {
             <div className='contents'>
                 {
                     stores.map((store, index) => (
-                        <Content storeId={store.id} storeName={store.storeName} model={store.model} makeYear={store.makeYear} price={store.price} />
+                        <Content storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
                     ))
                 }
             </div>

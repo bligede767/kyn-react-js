@@ -13,12 +13,12 @@ export default function EditUserProfile(props) {
         name: "",
         username: "",
         email: "",
-        mobile: "",
+        phone: "",
         city: "",
         country: "",
     });
 
-    const { name, username, email, mobile, city, country } = user;
+    const { name, username, email, phone, city, country } = user;
 
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -102,17 +102,17 @@ export default function EditUserProfile(props) {
                         onChange={(e) => onInputChange(e)} required />
                 </div>
                 <div className="col-md-12">
-                    <label for="mobile" className="form-label">Mobile</label>
+                    <label for="phone" className="form-label">Phone</label>
                     <input
                         type={"number"}
                         className="form-control"
-                        placeholder="Enter your mobile phone"
-                        name="mobile"
-                        value={mobile}
+                        placeholder="Enter your hone"
+                        name="phone"
+                        value={phone}
                         onChange={(e) => onInputChange(e)} required />
                 </div>
                 <div className="col-md-12">
-                    <label for="city" className="form-label">Email</label>
+                    <label for="city" className="form-label">City</label>
                     <input
                         type={"text"}
                         className="form-control"
@@ -122,7 +122,7 @@ export default function EditUserProfile(props) {
                         onChange={(e) => onInputChange(e)} required />
                 </div>
                 <div className="col-md-12">
-                    <label for="country" className="form-label">Email</label>
+                    <label for="country" className="form-label">Country</label>
                     <input
                         type={"text"}
                         className="form-control"
