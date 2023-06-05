@@ -55,7 +55,7 @@ export default function ViewCar() {
                 <div className='col-6'>
                     <h1>{car.carName}</h1>
                     <div>{car.model} - {car.makeYear}</div>
-                    <div className='card-detail-price'>{car.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</div>
+                    <div className='content-detail-price'>{car.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</div>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit est quis mi sollicitudin, id accumsan magna euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam a massa sodales enim tempus pretium id nec leo. In hac habitasse platea dictumst. Sed eget accumsan libero, id blandit metus.
                     </p>

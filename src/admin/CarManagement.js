@@ -57,7 +57,7 @@ export default function CarManagement() {
       <div className='heading'>
         <h1>Car Management</h1>
       </div>
-      <div className='cards'>
+      <div className='contents'>
         <table id="example" className="table table-striped" style={{ width: "100%" }}>
           <thead>
             <tr>

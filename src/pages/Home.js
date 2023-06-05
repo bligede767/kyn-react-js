@@ -41,7 +41,7 @@ export default function Home() {
                     <Link to={"/addcar"} className='btn btn-dark'>+ Add a car</Link>
                     : <></>}
             </div>
-            <div className='cards'>
+            <div className='contents'>
                 {
                     cars.map((car, index) => (
                         <Content key={index} carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />

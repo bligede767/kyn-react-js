@@ -63,7 +63,7 @@ export default function SearchCars() {
                 <Link className='btn btn-dark' to="/">« Go to home</Link>
                 <h1>Search Result</h1>
             </div>
-            <div className='cards'>
+            <div className='contents'>
                 {
                     cars.map((car, index) => (
                         <Content carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
