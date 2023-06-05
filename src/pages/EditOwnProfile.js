@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link, useLocation } from 'react-router-dom'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
+import { error } from 'jquery';
 export default function EditUserProfile(props) {
     const { data } = props;
     const { currentUser } = data;
@@ -70,7 +71,14 @@ export default function EditUserProfile(props) {
                 <h1>Updating Your Profile</h1>
                 <Link to={"/profile"} className='btn btn-dark'>❌ Cancel</Link>
             </div>
-            <form onSubmit={(e) => onSubmit(e)} className="row g-3">
+            <form onSubmit={(e) =>
+                onSubmit(e)
+                    .then(Response => {
+                        alert("Profile updated successfully")
+                    }).catch(error => {
+                        alert("Oops! Something went wrong. Please try again!")
+                    })
+            } className="row g-3">
                 <div className="col-md-12">
                     <label for="name" className="form-label">Fullname</label>
                     <input

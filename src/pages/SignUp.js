@@ -26,7 +26,7 @@ const SignUp = (props) => {
     return (
         <div className="signup-container">
             <div className="signup-content">
-                <h1 className="signup-title">Signup with SpringSocial</h1>
+                <h1 className="signup-title">Signup with Know Your Neighborhood</h1>
                 <SocialSignup />
                 <div className="or-separator">
                     <span className="or-text">OR</span>
@@ -49,8 +49,6 @@ const SignUp = (props) => {
 const SocialSignup = () => {
     return (
         <div className="social-signup">
-            <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                <img src={googleLogo} alt="Google" /> Log in with Google</a>
             <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
                 <img src={fbLogo} alt="Facebook" /> Sign up with Facebook</a>
         </div>

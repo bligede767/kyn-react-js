@@ -69,7 +69,12 @@ export default function EditUserProfile() {
                 <h2>ID: {id} | {name}</h2>
                 <Link to={"/admin/users"} className='btn btn-dark'>❌ Cancel</Link>
             </div>
-            <form onSubmit={(e) => onSubmit(e)} className="row g-3">
+            <form onSubmit={(e) => onSubmit(e)
+                .then(Response => {
+                    alert("Profile updated successfully")
+                }).catch(error => {
+                    alert("Oops! Something went wrong. Please try again!")
+                })} className="row g-3">
                 <div className="col-md-12">
                     <label for="name" className="form-label">Fullname</label>
                     <input
