@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Card from '../components/Card'
+import Content from '../components/Content'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
@@ -66,7 +66,7 @@ export default function SearchCars() {
             <div className='cards'>
                 {
                     cars.map((car, index) => (
-                        <Card carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                        <Content carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
                     ))
                 }
             </div>

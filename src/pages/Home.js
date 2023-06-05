@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import { MyContext } from "./MyContext";
 import { Link, useNavigate } from 'react-router-dom';
-import Card from '../components/Card'
+import Content from '../components/Content'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
@@ -44,7 +44,7 @@ export default function Home() {
             <div className='cards'>
                 {
                     cars.map((car, index) => (
-                        <Card key={index} carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                        <Content key={index} carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
                     ))
                 }
             </div>

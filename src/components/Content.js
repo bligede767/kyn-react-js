@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = (props) => {
+const Content = (props) => {
     return (
         <article className="card">
             <div className="card-img"></div>
@@ -19,4 +19,4 @@ const Card = (props) => {
     )
 }
 
-export default Card;
+export default Content;
