@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Content = (props) => {
     return (
-        <article className="content">
+        <article className="content" key={props.storeId}>
             <div className="content-img"></div>
             <Link to={`/viewStore/${props.storeId}`}>
                 <div className="content-img-hover">

@@ -4,10 +4,8 @@ import Home from './pages/Home';
 import ViewStore from './pages/ViewStore'
 import MySidebar from "./components/MySidebar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import SearchStores from './pages/SearchStores';
 import AddStore from './pages/AddStore'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
@@ -22,6 +20,7 @@ import UserDetails from './pages/UserDetails'
 import StoreManagement from './admin/StoreManagement'
 import MyFooter from './components/MyFooter';
 import EditUserStore from './pages/EditUserStore';
+import SearchResult from './pages/SearchResult';
 
 class App extends Component {
   constructor (props) {
@@ -94,11 +93,7 @@ class App extends Component {
                   <Route path="/addstore" element={<AddStore />} />
                   <Route path="/viewStore/:cid" element={<ViewStore />} />
 
-                  <Route path="/search/by/:filter/q/:q" element={<SearchStores />} />
-                  <Route path="/search/by/:filter/year/:q" element={<SearchStores />} />
-                  <Route path="/search/by/:filter/min/:min" element={<SearchStores />} />
-                  <Route path="/search/by/:filter/max/:max" element={<SearchStores />} />
-                  <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchStores />} />
+                  <Route path="/search/:q" element={<SearchResult />} />
                 </Routes>
               </div>
             </div>

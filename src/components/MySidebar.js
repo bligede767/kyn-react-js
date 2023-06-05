@@ -17,14 +17,14 @@ export default function MySidebar(props) {
         {token ?
           <li><Link to="/"><i className="fas fa-home"></i>🏠 Home</Link></li>
           : <></>}
+        {token ?
+          <li><Link to="/profile"><i className="fas fa-home"></i>👤 Profile</Link></li>
+          : <></>}
         {(token && profile?.role === 'ROLE_ADMIN') ?
           <li><Link to="/admin/users"><i className="fas fa-home"></i>👥 User Management</Link></li>
           : <></>}
         {(token && profile?.role === 'ROLE_ADMIN') ?
-          <li><Link to="/admin/stores"><i className="fas fa-home"></i>🚘 Store Management</Link></li>
-          : <></>}
-        {token ?
-          <li><Link to="/profile"><i className="fas fa-home"></i>👤 Profile</Link></li>
+          <li><Link to="/admin/stores"><i className="fas fa-home"></i>🛍 Store Management</Link></li>
           : <></>}
         {!token ?
           <li><Link to="/login"><i className="fas fa-home"></i>📲 Login</Link></li> : <></>}
