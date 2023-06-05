@@ -26,6 +26,9 @@ const Profile = (props) => {
                                 <h3>{profile?.name}</h3>
                                 <div>👤 Username: {profile?.username}</div>
                                 <div>✉️ Email: {profile?.email}</div>
+                                <div>📱 Mobile: {profile?.mobile}</div>
+                                <div>🏙 City: {profile?.city}</div>
+                                <div>🌎 Country: {profile?.country}</div>
                             </div>
                         </div>
                     </div>

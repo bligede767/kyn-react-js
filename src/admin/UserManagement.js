@@ -65,6 +65,7 @@ export default function UserManagement() {
               <th>Name</th>
               <th>Username</th>
               <th>Email</th>
+              <th>Mobile</th>
               <th>Provider</th>
               <th>Role</th>
               <th>Actions</th>
@@ -78,6 +79,7 @@ export default function UserManagement() {
                   <td>{user.name}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
+                  <td>{user.mobile}</td>
                   <td>{user.provider}</td>
                   <td>{user.role?.replaceAll("_", " ")}</td>
                   <td>

@@ -12,10 +12,13 @@ export default function EditUserProfile(props) {
     const [user, setUser] = useState({
         name: "",
         username: "",
-        email: ""
+        email: "",
+        mobile: "",
+        city: "",
+        country: "",
     });
 
-    const { name, username, email } = user;
+    const { name, username, email, mobile, city, country } = user;
 
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -96,6 +99,36 @@ export default function EditUserProfile(props) {
                         placeholder="Enter make year"
                         name="email"
                         value={email}
+                        onChange={(e) => onInputChange(e)} required />
+                </div>
+                <div className="col-md-12">
+                    <label for="mobile" className="form-label">Mobile</label>
+                    <input
+                        type={"number"}
+                        className="form-control"
+                        placeholder="Enter your mobile phone"
+                        name="mobile"
+                        value={mobile}
+                        onChange={(e) => onInputChange(e)} required />
+                </div>
+                <div className="col-md-12">
+                    <label for="city" className="form-label">Email</label>
+                    <input
+                        type={"text"}
+                        className="form-control"
+                        placeholder="Enter your city"
+                        name="city"
+                        value={city}
+                        onChange={(e) => onInputChange(e)} required />
+                </div>
+                <div className="col-md-12">
+                    <label for="country" className="form-label">Email</label>
+                    <input
+                        type={"text"}
+                        className="form-control"
+                        placeholder="Enter your country"
+                        name="country"
+                        value={country}
                         onChange={(e) => onInputChange(e)} required />
                 </div>
                 <div className="col-12">
