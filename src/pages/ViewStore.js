@@ -17,7 +17,6 @@ export default function ViewStore() {
     });
 
     const { cid } = useParams();
-
     useEffect(() => {
         loadStore();
     }, [cid]);

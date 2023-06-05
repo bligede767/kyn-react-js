@@ -5,23 +5,23 @@ import axios from 'axios';
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
 import useProfile from '../util/UserInfo';
+import Content from '../components/Content';
 
 const UserDetails = () => {
-    const { token, profile } = useProfile();
+    const { profile } = useProfile();
     const navigate = useNavigate();
-    const [user, setUser] = useState({
-        name: "",
-        username: "",
-        email: ""
-    });
+
+    const [stores, setStores] = useState([]);
+
+    const [user, setUser] = useState([]);
 
     const { id } = useParams();
 
     useEffect(() => {
-        loadStore();
+        loadUser();
     }, [id]);
 
-    const loadStore = async () => {
+    const loadUser = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
         // Check token
         if (!token) {
@@ -34,8 +34,10 @@ const UserDetails = () => {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`${API_BASE_URL}/user/details/${id}`, headers);
-        setUser(result.data);
+        const userDetailData = await axios.get(`${API_BASE_URL}/user/details/${id}`, headers);
+        const userStore = await axios.get(`${API_BASE_URL}/store/owner?uId=${id}`, headers);
+        setUser(userDetailData.data);
+        setStores(userStore.data)
     }
     console.log(user.stores);
     return (
@@ -63,6 +65,13 @@ const UserDetails = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='contents' style={{ marginTop: "40px" }}>
+                {
+                    stores.map((store, index) => (
+                        <Content key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
+                    ))
+                }
             </div>
         </div>
     )
