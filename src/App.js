@@ -20,6 +20,7 @@ import EditUserProfile from './components/EditUserProfile'
 import EditOwnProfile from './components/EditOwnProfile'
 import UserDetails from './pages/UserDetails'
 import CarManagement from './admin/CarManagement'
+import MyFooter from './components/MyFooter';
 
 class App extends Component {
   constructor (props) {
@@ -70,33 +71,36 @@ class App extends Component {
       <div className="App wrapper">
         <Router>
           <MySidebar authenticated={this.state.authenticated} onLogout={this.handleLogout} />
-          <div className="main_content">
-            <div className="container ">
-              <Routes>
-                <Route path="/" element={<Home />} />
+          <div className='main'>
+            <div className="main_content">
+              <div className="container ">
+                <Routes>
+                  <Route path="/" element={<Home />} />
 
-                <Route path="/admin/users" element={<UserManagement />} />
-                <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
-                <Route path="/admin/cars" element={<CarManagement />} />
+                  <Route path="/admin/users" element={<UserManagement />} />
+                  <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
+                  <Route path="/admin/cars" element={<CarManagement />} />
 
-                <Route path="/user/:id" element={<UserDetails />} />
-                <Route path="/profile" element={<Profile data={this.state} />} />
-                <Route path="/profile/update" element={<EditOwnProfile data={this.state} />} />
+                  <Route path="/user/:id" element={<UserDetails />} />
+                  <Route path="/profile" element={<Profile data={this.state} />} />
+                  <Route path="/profile/update" element={<EditOwnProfile data={this.state} />} />
 
-                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
-                <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
-                <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
+                  <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
+                  <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
+                  <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
 
-                <Route path="/addcar" element={<AddCar />} />
-                <Route path="/viewCar/:cid" element={<ViewCar />} />
+                  <Route path="/addcar" element={<AddCar />} />
+                  <Route path="/viewCar/:cid" element={<ViewCar />} />
 
-                <Route path="/search/by/:filter/q/:q" element={<SearchCars />} />
-                <Route path="/search/by/:filter/year/:q" element={<SearchCars />} />
-                <Route path="/search/by/:filter/min/:min" element={<SearchCars />} />
-                <Route path="/search/by/:filter/max/:max" element={<SearchCars />} />
-                <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
-              </Routes>
+                  <Route path="/search/by/:filter/q/:q" element={<SearchCars />} />
+                  <Route path="/search/by/:filter/year/:q" element={<SearchCars />} />
+                  <Route path="/search/by/:filter/min/:min" element={<SearchCars />} />
+                  <Route path="/search/by/:filter/max/:max" element={<SearchCars />} />
+                  <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
+                </Routes>
+              </div>
             </div>
+            <MyFooter />
           </div>
         </Router>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.2/dist/js/bootstrap.bundle.min.js"></script>

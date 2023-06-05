@@ -6,9 +6,10 @@ import Card from '../components/Card'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
-
+import useProfile from '../util/UserInfo';
 
 export default function Home() {
+    const { profile } = useProfile();
     const navigate = useNavigate();
     const [cars, setCars] = useState([]);
 
@@ -36,7 +37,9 @@ export default function Home() {
         <div>
             <div className='heading'>
                 <h1>Car List</h1>
-                <Link to={"/addcar"} className='btn btn-dark'>+ Add a car</Link>
+                {profile?.role === 'ROLE_USER' ?
+                    <Link to={"/addcar"} className='btn btn-dark'>+ Add a car</Link>
+                    : <></>}
             </div>
             <div className='cards'>
                 {

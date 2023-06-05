@@ -77,28 +77,35 @@ body {
   margin-bottom: 30px;
 }
 
-.wrapper .main_content {
+
+.main {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main_content {
   margin-top: 30px;
   margin-bottom: 60px;
   margin-left: 310px;
   margin-right: 55px;
 }
 
-.wrapper .main_content .header {
+.main_content .header {
   padding: 20px;
   background: #fff;
   color: #717171;
   border-bottom: 1px solid #e0e4e8;
 }
 
-.wrapper .main_content .info {
+.main_content .info {
   margin: 20px;
   color: #717171;
   line-height: 25px;
 }
 
-.wrapper .main_content .info div {
+.main_content .info div {
   margin-bottom: 20px;
 }
 
@@ -372,4 +379,35 @@ body {
 
 .information {
   margin-left: 20px;
+}
+
+/* ====== Footer Styling ====== */
+.footer {
+  height: min-content;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 310px;
+  padding-right: 55px;
+  margin-top: auto;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer div .row .col {
+  width: 500px;
+}
+
+.footer div .row .col .title {
+  font-weight: 500;
+}
+
+.footer div .row .col a {
+  text-decoration: none;
+  color: #252526;
+}
+
+.copyright {
+  margin-top: 10px;
 }
