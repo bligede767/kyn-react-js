@@ -6,11 +6,11 @@ import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
 import useProfile from '../util/UserInfo';
 
-export default function ViewCar() {
+export default function ViewStore() {
     const { token, profile } = useProfile();
     const navigate = useNavigate();
-    const [car, setCar] = useState({
-        carName: "",
+    const [store, setStore] = useState({
+        storeName: "",
         model: "",
         makeYear: "",
         price: "",
@@ -19,10 +19,10 @@ export default function ViewCar() {
     const { cid } = useParams();
 
     useEffect(() => {
-        loadCar();
+        loadStore();
     }, [cid]);
 
-    const loadCar = async () => {
+    const loadStore = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
         // Check token
         if (!token) {
@@ -35,27 +35,27 @@ export default function ViewCar() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`${API_BASE_URL}/car/viewCar?cid=${cid}`, headers);
-        setCar(result.data);
+        const result = await axios.get(`${API_BASE_URL}/store/viewStore?cid=${cid}`, headers);
+        setStore(result.data);
     }
-    console.log(car.user)
+    console.log(store.user)
     return (
         <div>
             <div className="heading d-flex">
-                <h1>Car Detail</h1>
+                <h1>Store Detail</h1>
                 {profile?.role === 'ROLE_ADMIN' ?
-                    <Link to={`/admin/update-car/${car.id}`} >Edit</Link>
+                    <Link to={`/admin/update-store/${store.id}`} >Edit</Link>
                     : <></>
                 }
             </div>
             <div className='row'>
                 <div className='col-6'>
-                    <img className='car-detail-img' src='https://cdn.idntimes.com/content-images/post/20220315/red-tesla-model-3-fefc48e4a17a6fa56e5c6470c5173f35_600x400.jpg' />
+                    <img className='store-detail-img' src='https://cdn.idntimes.com/content-images/post/20220315/red-tesla-model-3-fefc48e4a17a6fa56e5c6470c5173f35_600x400.jpg' />
                 </div>
                 <div className='col-6'>
-                    <h1>{car.carName}</h1>
-                    <div>{car.model} - {car.makeYear}</div>
-                    <div className='content-detail-price'>{car.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</div>
+                    <h1>{store.storeName}</h1>
+                    <div>{store.model} - {store.makeYear}</div>
+                    <div className='content-detail-price'>{store.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</div>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit est quis mi sollicitudin, id accumsan magna euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam a massa sodales enim tempus pretium id nec leo. In hac habitasse platea dictumst. Sed eget accumsan libero, id blandit metus.
                     </p>

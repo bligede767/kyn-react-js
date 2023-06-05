@@ -13,7 +13,7 @@ const SearchBar = () => {
         e.preventDefault();
         const filter = e.target.filter.value;
 
-        let carNameKeyword = e.target.carNameKeyword.value;
+        let storeNameKeyword = e.target.storeNameKeyword.value;
         let modelKeyword = '';
         let makeYearKeyword = '';
         let price = '';
@@ -21,24 +21,24 @@ const SearchBar = () => {
         let max = '';
 
         if (isInSearch) {
-            carNameKeyword = e.target.carNameKeyword.value;
+            storeNameKeyword = e.target.storeNameKeyword.value;
             modelKeyword = e.target.modelKeyword.value;
             makeYearKeyword = e.target.makeYearKeyword.value;
             price = e.target.price.value;
             min = e.target.min.value;
             max = e.target.max.value;
         } else {
-            carNameKeyword = e.target.carNameKeyword?.value || '';
+            storeNameKeyword = e.target.storeNameKeyword?.value || '';
             modelKeyword = e.target.modelKeyword?.value || '';
             makeYearKeyword = e.target.makeYearKeyword?.value || '';
-            price = e.target.carNameKeyword?.value || '';
+            price = e.target.storeNameKeyword?.value || '';
             min = e.target.min?.value || '';
             max = e.target.max?.value || '';
         }
 
-        if (filter == "carname") {
-            console.log(`car name: ${filter} ${carNameKeyword}`)
-            navigate(`/search/by/carname/q/${carNameKeyword}`);
+        if (filter == "storename") {
+            console.log(`store name: ${filter} ${storeNameKeyword}`)
+            navigate(`/search/by/storename/q/${storeNameKeyword}`);
             // navigate(`/`);
         } else if (filter == "model") {
             navigate(`/search/by/model/q/${modelKeyword}`);
@@ -62,8 +62,8 @@ const SearchBar = () => {
             {!isInSearch ? (
                 <div>
                     <div>
-                        <input type="hidden" id="carname" name="filter" value="carname" />
-                        <input type="text" className='form-control' name="carNameKeyword" placeholder='Search' required />
+                        <input type="hidden" id="storename" name="filter" value="storename" />
+                        <input type="text" className='form-control' name="storeNameKeyword" placeholder='Search' required />
                     </div>
                 </div>) : (
 
@@ -72,15 +72,15 @@ const SearchBar = () => {
                         <div className="accordion-item">
                             <h2 className="accordion-header">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" >
-                                    Car Name
+                                    Store Name
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                 <div className="accordion-body">
                                     <div>
-                                        <input type="radio" id="carname" className='radio-input' name="filter" value="carname" onChange={handleRadioChange} />
-                                        <label htmlFor="carname">Car Name</label>
-                                        <input type="text" name="carNameKeyword" className='form-control' placeholder='Car Name' required={selectedFilter === 'carname'} />
+                                        <input type="radio" id="storename" className='radio-input' name="filter" value="storename" onChange={handleRadioChange} />
+                                        <label htmlFor="storename">Store Name</label>
+                                        <input type="text" name="storeNameKeyword" className='form-control' placeholder='Store Name' required={selectedFilter === 'storename'} />
                                     </div>
                                 </div>
                             </div>

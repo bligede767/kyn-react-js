@@ -5,20 +5,20 @@ import { useNavigate, Link } from 'react-router-dom'
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
 
-export default function SaveCar() {
+export default function SaveStore() {
   let navigate = useNavigate();
 
-  const [car, setCar] = useState({
-    carName: "",
+  const [store, setStore] = useState({
+    storeName: "",
     model: "",
     makeYear: "",
     price: "",
   });
 
-  const { carName, model, makeYear, price } = car;
+  const { storeName, model, makeYear, price } = store;
 
   const onInputChange = (e) => {
-    setCar({ ...car, [e.target.name]: e.target.value });
+    setStore({ ...store, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async (e) => {
@@ -34,25 +34,25 @@ export default function SaveCar() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    await axios.post(`${API_BASE_URL}/car/save-car`, car, headers);
+    await axios.post(`${API_BASE_URL}/store/save-store`, store, headers);
     navigate("/");
   };
 
   return (
     <div>
       <div className='heading'>
-        <h1>Add Car</h1>
+        <h1>Add Store</h1>
         <Link to={"/"} className='btn btn-dark'>❌ Cancel</Link>
       </div>
       <form onSubmit={(e) => onSubmit(e)} className="row g-3">
         <div className="col-md-12">
-          <label for="carName" className="form-label">Car Name</label>
+          <label for="storeName" className="form-label">Store Name</label>
           <input
             type={"text"}
             className="form-control"
-            placeholder="Enter car name"
-            name="carName"
-            value={carName}
+            placeholder="Enter store name"
+            name="storeName"
+            value={storeName}
             onChange={(e) => onInputChange(e)} required />
         </div>
         <div className="col-md-12">

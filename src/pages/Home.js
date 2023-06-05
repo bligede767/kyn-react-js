@@ -11,13 +11,13 @@ import useProfile from '../util/UserInfo';
 export default function Home() {
     const { profile } = useProfile();
     const navigate = useNavigate();
-    const [cars, setCars] = useState([]);
+    const [stores, setStores] = useState([]);
 
     useEffect(() => {
-        loadCars();
+        loadStores();
     }, []);
 
-    const loadCars = async () => {
+    const loadStores = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
         // Check token
         if (!token) {
@@ -30,21 +30,21 @@ export default function Home() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`${API_BASE_URL}/car/cars`, headers)
-        setCars(result.data);
+        const result = await axios.get(`${API_BASE_URL}/store/stores`, headers)
+        setStores(result.data);
     }
     return (
         <div>
             <div className='heading'>
-                <h1>Car List</h1>
+                <h1>Store List</h1>
                 {profile?.role === 'ROLE_USER' ?
-                    <Link to={"/addcar"} className='btn btn-dark'>+ Add a car</Link>
+                    <Link to={"/addstore"} className='btn btn-dark'>+ Add a store</Link>
                     : <></>}
             </div>
             <div className='contents'>
                 {
-                    cars.map((car, index) => (
-                        <Content key={index} carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                    stores.map((store, index) => (
+                        <Content key={index} storeId={store.id} storeName={store.storeName} model={store.model} makeYear={store.makeYear} price={store.price} />
                     ))
                 }
             </div>

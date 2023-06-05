@@ -6,18 +6,18 @@ import Content from '../components/Content'
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
 
-export default function SearchCars() {
+export default function SearchStores() {
     const navigate = useNavigate();
-    const [cars, setCars] = useState([]);
+    const [stores, setStores] = useState([]);
 
     const { filter, q, min, max } = useParams();
 
     useEffect(() => {
-        console.log("search car works")
-        loadSearchedCars();
+        console.log("search store works")
+        loadSearchedStores();
     }, [filter, q, min, max])
 
-    const loadSearchedCars = async () => {
+    const loadSearchedStores = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
         if (!token) {
             navigate('/login')
@@ -29,32 +29,32 @@ export default function SearchCars() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        let result = await axios.get(`${API_BASE_URL}/car/cars`, headers);
+        let result = await axios.get(`${API_BASE_URL}/store/stores`, headers);
         const keyword = encodeURI(q);
-        if (filter === "carname") {
-            console.log(`search by carname: ${q}`);
-            result = await axios.get(`${API_BASE_URL}/car/search?by=carName&keyword=${q}`, headers)
+        if (filter === "storename") {
+            console.log(`search by storename: ${q}`);
+            result = await axios.get(`${API_BASE_URL}/store/search?by=storeName&keyword=${q}`, headers)
         }
         else if (filter === "model") {
             console.log(`search by model: ${q}`);
-            result = await axios.get(`${API_BASE_URL}/car/search?by=model&keyword=${q}`, headers)
+            result = await axios.get(`${API_BASE_URL}/store/search?by=model&keyword=${q}`, headers)
         }
         else if (filter === "makeyear") {
             console.log(`search by make year: ${q}`);
-            result = await axios.get(`${API_BASE_URL}/car/search?by=makeYear&year=${q}`, headers)
+            result = await axios.get(`${API_BASE_URL}/store/search?by=makeYear&year=${q}`, headers)
         }
         else if (filter === "price") {
             console.log(`search by price: min: ${min} max: ${max}`);
             if (min != null && max == null) {
-                result = await axios.get(`${API_BASE_URL}/car/search?by=price&min=${min}`, headers)
+                result = await axios.get(`${API_BASE_URL}/store/search?by=price&min=${min}`, headers)
             } else if (min == null && max != null) {
-                result = await axios.get(`${API_BASE_URL}/car/search?by=price&max=${max}`, headers)
+                result = await axios.get(`${API_BASE_URL}/store/search?by=price&max=${max}`, headers)
             } else if (min !== null && max !== null) {
-                result = await axios.get(`${API_BASE_URL}/car/search?by=price&min=${min}&max=${max}`, headers)
+                result = await axios.get(`${API_BASE_URL}/store/search?by=price&min=${min}&max=${max}`, headers)
             }
         }
         console.log(result.data);
-        setCars(result.data);
+        setStores(result.data);
     }
 
     return (
@@ -65,8 +65,8 @@ export default function SearchCars() {
             </div>
             <div className='contents'>
                 {
-                    cars.map((car, index) => (
-                        <Content carId={car.id} carName={car.carName} model={car.model} makeYear={car.makeYear} price={car.price} />
+                    stores.map((store, index) => (
+                        <Content storeId={store.id} storeName={store.storeName} model={store.model} makeYear={store.makeYear} price={store.price} />
                     ))
                 }
             </div>

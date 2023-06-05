@@ -21,7 +21,7 @@ export default function MySidebar(props) {
           <li><Link to="/admin/users"><i className="fas fa-home"></i>👥 User Management</Link></li>
           : <></>}
         {(token && profile?.role === 'ROLE_ADMIN') ?
-          <li><Link to="/admin/cars"><i className="fas fa-home"></i>🚘 Car Management</Link></li>
+          <li><Link to="/admin/stores"><i className="fas fa-home"></i>🚘 Store Management</Link></li>
           : <></>}
         {token ?
           <li><Link to="/profile"><i className="fas fa-home"></i>👤 Profile</Link></li>

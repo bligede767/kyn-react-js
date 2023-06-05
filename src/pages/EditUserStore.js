@@ -4,20 +4,20 @@ import { useParams, useNavigate, Link, useLocation } from 'react-router-dom'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
-export default function EditUserCar() {
+export default function EditUserStore() {
     let navigate = useNavigate();
 
-    const [car, setCar] = useState({
-        carName: "",
+    const [store, setStore] = useState({
+        storeName: "",
         model: "",
         makeYear: "",
         price: ""
     });
 
-    const { carName, model, makeYear, price } = car;
+    const { storeName, model, makeYear, price } = store;
 
     const onInputChange = (e) => {
-        setCar({ ...car, [e.target.name]: e.target.value });
+        setStore({ ...store, [e.target.name]: e.target.value });
     };
 
     const onSubmit = async (e) => {
@@ -33,8 +33,8 @@ export default function EditUserCar() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        await axios.put(`${API_BASE_URL}/admin/update-car/${cid}`, car, headers);
-        navigate("/admin/cars");
+        await axios.put(`${API_BASE_URL}/admin/update-store/${cid}`, store, headers);
+        navigate("/admin/stores");
     };
 
     const { cid } = useParams();
@@ -56,27 +56,27 @@ export default function EditUserCar() {
                 Authorization: 'Bearer ' + token //the token is a variable which holds the token
             }
         };
-        const result = await axios.get(`${API_BASE_URL}/car/viewCar?cid=${cid}`, headers);
-        setCar(result.data);
+        const result = await axios.get(`${API_BASE_URL}/store/viewStore?cid=${cid}`, headers);
+        setStore(result.data);
     }
 
 
     return (
         <div>
             <div className='heading'>
-                <h1>Update Car</h1>
-                <h2>ID: {cid} | {carName}</h2>
-                <Link to={"/admin/users"} className='btn btn-dark'>❌ Cancel</Link>
+                <h1>Update Store</h1>
+                <h2>ID: {cid} | {storeName}</h2>
+                <Link to={"/admin/stores"} className='btn btn-dark'>❌ Cancel</Link>
             </div>
             <form onSubmit={(e) => onSubmit(e)} className="row g-3">
                 <div className="col-md-12">
-                    <label for="carName" className="form-label">Car Name</label>
+                    <label for="storeName" className="form-label">Store Name</label>
                     <input
                         type={"text"}
                         className="form-control"
-                        placeholder="Enter car name"
-                        name="carName"
-                        value={carName}
+                        placeholder="Enter store name"
+                        name="storeName"
+                        value={storeName}
                         onChange={(e) => onInputChange(e)} required />
                 </div>
                 <div className="col-md-12">

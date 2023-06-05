@@ -18,10 +18,10 @@ const UserDetails = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        loadCar();
+        loadStore();
     }, [id]);
 
-    const loadCar = async () => {
+    const loadStore = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN)
         // Check token
         if (!token) {
@@ -37,7 +37,7 @@ const UserDetails = () => {
         const result = await axios.get(`${API_BASE_URL}/user/details/${id}`, headers);
         setUser(result.data);
     }
-    console.log(user.cars);
+    console.log(user.stores);
     return (
         <div>
             <div className='heading d-flex'>

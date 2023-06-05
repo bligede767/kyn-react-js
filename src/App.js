@@ -1,14 +1,14 @@
 import './App.css';
 import React, { Component } from 'react';
 import Home from './pages/Home';
-import ViewCar from './pages/ViewCar'
+import ViewStore from './pages/ViewStore'
 import MySidebar from "./components/MySidebar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import SearchCars from './pages/SearchCars';
-import AddCar from './pages/AddCar'
+import SearchStores from './pages/SearchStores';
+import AddStore from './pages/AddStore'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import { ACCESS_TOKEN } from './constants'
@@ -19,9 +19,9 @@ import UserManagement from './admin/UserManagement';
 import EditUserProfile from './pages/EditUserProfile'
 import EditOwnProfile from './pages/EditOwnProfile'
 import UserDetails from './pages/UserDetails'
-import CarManagement from './admin/CarManagement'
+import StoreManagement from './admin/StoreManagement'
 import MyFooter from './components/MyFooter';
-import EditUserCar from './pages/EditUserCar';
+import EditUserStore from './pages/EditUserStore';
 
 class App extends Component {
   constructor (props) {
@@ -80,8 +80,8 @@ class App extends Component {
 
                   <Route path="/admin/users" element={<UserManagement />} />
                   <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
-                  <Route path="/admin/cars" element={<CarManagement />} />
-                  <Route path="/admin/update-car/:cid" element={<EditUserCar />} />
+                  <Route path="/admin/stores" element={<StoreManagement />} />
+                  <Route path="/admin/update-store/:cid" element={<EditUserStore />} />
 
                   <Route path="/user/:id" element={<UserDetails />} />
                   <Route path="/profile" element={<Profile data={this.state} />} />
@@ -91,14 +91,14 @@ class App extends Component {
                   <Route path="/signup" element={<SignUp authenticated={this.state.authenticated} />} />
                   <Route path="/login" element={<Login authenticated={this.state.authenticated} />} />
 
-                  <Route path="/addcar" element={<AddCar />} />
-                  <Route path="/viewCar/:cid" element={<ViewCar />} />
+                  <Route path="/addstore" element={<AddStore />} />
+                  <Route path="/viewStore/:cid" element={<ViewStore />} />
 
-                  <Route path="/search/by/:filter/q/:q" element={<SearchCars />} />
-                  <Route path="/search/by/:filter/year/:q" element={<SearchCars />} />
-                  <Route path="/search/by/:filter/min/:min" element={<SearchCars />} />
-                  <Route path="/search/by/:filter/max/:max" element={<SearchCars />} />
-                  <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchCars />} />
+                  <Route path="/search/by/:filter/q/:q" element={<SearchStores />} />
+                  <Route path="/search/by/:filter/year/:q" element={<SearchStores />} />
+                  <Route path="/search/by/:filter/min/:min" element={<SearchStores />} />
+                  <Route path="/search/by/:filter/max/:max" element={<SearchStores />} />
+                  <Route path="/search/by/:filter/min/:min/max/:max" element={<SearchStores />} />
                 </Routes>
               </div>
             </div>
