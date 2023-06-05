@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useProfile from '../../util/UserInfo';
 import { ACCESS_TOKEN, API_BASE_URL } from '../../constants';
 import axios from 'axios';
-import Content from '../../components/Content';
+import Card from '../../components/Card';
 
 const Profile = (props) => {
     const { profile } = useProfile();
@@ -64,10 +64,10 @@ const Profile = (props) => {
                 {stores.length != 0 ?
                     <div style={{ marginTop: "40px" }}>
                         <h3>Stores</h3>
-                        <div className='contents' style={{ marginTop: "20px" }}>
+                        <div className='cards' style={{ marginTop: "20px" }}>
                             {
                                 stores.map((store, index) => (
-                                    <Content key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
+                                    <Card key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
                                 ))
                             }
                         </div>

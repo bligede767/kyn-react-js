@@ -72,7 +72,7 @@ class App extends Component {
         <Router>
           <MySidebar authenticated={this.state.authenticated} onLogout={this.handleLogout} />
           <div className='main'>
-            <div className="main_content">
+            <div className="main_card">
               <div className="container ">
                 <Routes>
                   <Route path="/" element={<Home />} />

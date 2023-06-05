@@ -7,7 +7,7 @@ import { API_BASE_URL } from '../constants';
 import useProfile from '../util/UserInfo';
 
 export default function ViewStore() {
-    const { token, profile } = useProfile();
+    const { profile } = useProfile();
     const navigate = useNavigate();
     const [store, setStore] = useState({
         storeName: "",
@@ -49,15 +49,13 @@ export default function ViewStore() {
             </div>
             <div className='row'>
                 <div className='col-6'>
-                    <img className='store-detail-img' src='https://cdn.idntimes.com/content-images/post/20220315/red-tesla-city-3-fefc48e4a17a6fa56e5c6470c5173f35_600x400.jpg' />
+                    <img className='store-detail-img' src='https://img.etimg.com/thumb/width-1200,height-900,imgsize-122620,resizemode-1,msid-75214721/industry/services/retail/future-group-negotiates-rents-for-its-1700-stores.jpg' />
                 </div>
                 <div className='col-6'>
                     <h1>{store.storeName}</h1>
-                    <div>{store.city} - {store.country}</div>
-                    <div className='content-detail-phone'>{store.phone.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit est quis mi sollicitudin, id accumsan magna euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam a massa sodales enim tempus pretium id nec leo. In hac habitasse platea dictumst. Sed eget accumsan libero, id blandit metus.
-                    </p>
+                    <div>🏙 {store.city}</div>
+                    <div>🌎 {store.country}</div>
+                    <div className='card-detail-phone'>📞 {store.phone}</div>
                 </div>
             </div>
         </div>

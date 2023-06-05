@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Content from '../components/Content'
+import Card from '../components/Card'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
@@ -42,11 +42,11 @@ export default function SearchResult() {
         <div>
             <div className="heading">
                 <Link className='btn btn-dark' to="/">« Go to home</Link>
-                <h1>SearchResult Result</h1>
+                <h1>Search Result</h1>
             </div>
             <div>
                 <h3>Users</h3>
-                <div className='contents' style={{ marginTop: "25px" }}>
+                <div className='cards' style={{ marginTop: "25px" }}>
                     <table id="example" className="table table-striped" style={{ width: "100%" }}>
                         <thead>
                             <tr>
@@ -76,10 +76,10 @@ export default function SearchResult() {
             </div>
             <div style={{ marginTop: "25px" }}>
                 <h3>Stores</h3>
-                <div className='contents' style={{ marginTop: "25px" }}>
+                <div className='cards' style={{ marginTop: "25px" }}>
                     {
                         stores.map((store, index) => (
-                            <Content storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
+                            <Card storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
                         ))
                     }
                 </div>

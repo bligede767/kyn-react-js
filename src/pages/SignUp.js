@@ -25,7 +25,7 @@ const SignUp = (props) => {
 
     return (
         <div className="signup-container">
-            <div className="signup-content">
+            <div className="signup-card">
                 <h1 className="signup-title">Signup with Know Your Neighborhood</h1>
                 <SocialSignup />
                 <div className="or-separator">

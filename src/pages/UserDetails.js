@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
 import useProfile from '../util/UserInfo';
-import Content from '../components/Content';
+import Card from '../components/Card';
 
 const UserDetails = () => {
     const { profile } = useProfile();
@@ -66,10 +66,10 @@ const UserDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className='contents' style={{ marginTop: "40px" }}>
+            <div className='cards' style={{ marginTop: "40px" }}>
                 {
                     stores.map((store, index) => (
-                        <Content key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
+                        <Card key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
                     ))
                 }
             </div>

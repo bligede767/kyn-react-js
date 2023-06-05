@@ -34,7 +34,7 @@ export default function Login(props) {
 
     return (
         <div className="login-container">
-            <div className="login-content">
+            <div className="login-card">
                 <h1 className="login-title">Login to XYZ CAR</h1>
                 <SocialLogin />
                 <div className="or-separator">

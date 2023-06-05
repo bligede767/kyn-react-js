@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import { MyContext } from "./MyContext";
 import { Link, useNavigate } from 'react-router-dom';
-import Content from '../components/Content'
+import Card from '../components/Card'
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
@@ -41,10 +41,10 @@ export default function Home() {
                     <Link to={"/addstore"} className='btn btn-dark'>+ Add a store</Link>
                     : <></>}
             </div>
-            <div className='contents'>
+            <div className='cards'>
                 {
                     stores.map((store, index) => (
-                        <Content key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
+                        <Card key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
                     ))
                 }
             </div>
