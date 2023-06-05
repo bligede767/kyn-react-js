@@ -78,7 +78,7 @@ export default function SaveStore() {
         <div className="col-md-12">
           <label for="phone" className="form-label">Phone</label>
           <input
-            type={"text"}
+            type={"number"}
             className="form-control"
             placeholder="Enter phone"
             name="phone"
