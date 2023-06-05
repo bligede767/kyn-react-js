@@ -1,13 +1,7 @@
-import React, { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 const SearchBar = () => {
     let navigate = useNavigate();
-
-    const [selectedFilter, setSelectedFilter] = useState('');
-
-    const handleRadioChange = (e) => {
-        setSelectedFilter(e.target.value);
-    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
