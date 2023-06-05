@@ -8,15 +8,15 @@ export default function MyFooter() {
                 <div className='row text-center'>
                     <div className='col'>
                         {/* <div className='title'>About Us</div> */}
-                        <Link to="/">About Us</Link>
+                        <Link to="/about">About Us</Link>
                     </div>
                     <div className='col'>
                         {/* <div className='title'>Terms and Condition</div> */}
-                        <Link to="/">Terms and Conditions</Link>
+                        <Link to="/terms-and-conditions">Terms and Conditions</Link>
                     </div>
                     <div className='col'>
                         {/* <div className='title'>Contact Us</div> */}
-                        <Link to="/">Contact Us</Link>
+                        <Link to="/contact">Contact Us</Link>
                     </div>
                 </div>
             </div>

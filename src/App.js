@@ -21,6 +21,9 @@ import StoreManagement from './admin/StoreManagement'
 import MyFooter from './components/MyFooter';
 import EditUserStore from './pages/EditUserStore';
 import SearchResult from './pages/SearchResult';
+import AboutUs from './pages/AboutUs';
+import TermsAndConditions from './pages/TermsAndConditions';
+import ContactUs from './pages/ContactUs';
 
 class App extends Component {
   constructor (props) {
@@ -94,6 +97,10 @@ class App extends Component {
                   <Route path="/viewStore/:cid" element={<ViewStore />} />
 
                   <Route path="/search/:q" element={<SearchResult />} />
+
+                  <Route path="/about" element={<AboutUs />} />
+                  <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                  <Route path="/contact" element={<ContactUs />} />
                 </Routes>
               </div>
             </div>
