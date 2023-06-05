@@ -16,11 +16,12 @@ import { getCurrentUser } from './util/APIUtils'
 import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
 import Profile from './user/profile/Profile'
 import UserManagement from './admin/UserManagement';
-import EditUserProfile from './components/EditUserProfile'
-import EditOwnProfile from './components/EditOwnProfile'
+import EditUserProfile from './pages/EditUserProfile'
+import EditOwnProfile from './pages/EditOwnProfile'
 import UserDetails from './pages/UserDetails'
 import CarManagement from './admin/CarManagement'
 import MyFooter from './components/MyFooter';
+import EditUserCar from './pages/EditUserCar';
 
 class App extends Component {
   constructor (props) {
@@ -80,6 +81,7 @@ class App extends Component {
                   <Route path="/admin/users" element={<UserManagement />} />
                   <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
                   <Route path="/admin/cars" element={<CarManagement />} />
+                  <Route path="/admin/update-car/:cid" element={<EditUserCar />} />
 
                   <Route path="/user/:id" element={<UserDetails />} />
                   <Route path="/profile" element={<Profile data={this.state} />} />

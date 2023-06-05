@@ -13,7 +13,7 @@ const Profile = (props) => {
         return (
             <div>
                 <div className='heading d-flex'>
-                    <h1>User Profile</h1>
+                    <h1>Profile</h1>
                     <Link to={"/profile/update"} >Edit</Link>
                 </div>
                 <div className='profile-bg' >

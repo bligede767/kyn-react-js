@@ -41,7 +41,7 @@ export default function UserManagement() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    await axios.delete(`${API_BASE_URL}/admin/delete/${id}`, headers);
+    await axios.delete(`${API_BASE_URL}/admin/delete-user/${id}`, headers);
     loadUsers();
   }
   const confirmDelete = (id, name) => {

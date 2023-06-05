@@ -40,7 +40,6 @@ export default function ViewCar() {
     return (
         <div>
             <div className="heading">
-                <Link className='btn btn-dark' to="/">« Go to home</Link>
                 <h1>Car Detail</h1>
             </div>
             <div className='row'>

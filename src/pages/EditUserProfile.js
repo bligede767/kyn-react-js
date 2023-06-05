@@ -59,7 +59,6 @@ export default function EditUserProfile() {
         setUser(result.data);
     }
 
-
     return (
         <div>
             <div className='heading'>
