@@ -4,8 +4,10 @@ import axios from 'axios';
 
 import { ACCESS_TOKEN } from '../constants';
 import { API_BASE_URL } from '../constants';
+import useProfile from '../util/UserInfo';
 
 export default function ViewCar() {
+    const { token, profile } = useProfile();
     const navigate = useNavigate();
     const [car, setCar] = useState({
         carName: "",
@@ -39,8 +41,12 @@ export default function ViewCar() {
     console.log(car.user)
     return (
         <div>
-            <div className="heading">
+            <div className="heading d-flex">
                 <h1>Car Detail</h1>
+                {profile?.role === 'ROLE_ADMIN' ?
+                    <Link to={`/admin/update-car/${car.id}`} >Edit</Link>
+                    : <></>
+                }
             </div>
             <div className='row'>
                 <div className='col-6'>
