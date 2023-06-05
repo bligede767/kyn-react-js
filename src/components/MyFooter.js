@@ -20,7 +20,7 @@ export default function MyFooter() {
                     </div>
                 </div>
             </div>
-            <div className='copyright'>Copyright © 2023 Know Your Neighborhood</div>
+            <div className='copyright'>Copyright © 2023 | Know Your Neighborhood</div>
         </footer>
     )
 }
