@@ -67,7 +67,7 @@ export default function EditUserProfile() {
             <div className='heading'>
                 <h1>Update Profile</h1>
                 <h2>ID: {id} | {name}</h2>
-                <Link to={"/admin/users"} className='btn btn-dark'>❌ Cancel</Link>
+                <Link to={"/admin/users"} className='btn btn-dark'><i class="bi bi-x-circle"></i> Cancel</Link>
             </div>
             <form onSubmit={(e) => onSubmit(e)
                 .then(Response => {

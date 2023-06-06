@@ -66,7 +66,7 @@ export default function SearchResult() {
                                         <td>{user.username}</td>
                                         <td>{user.email}</td>
                                         <td>{user.phone}</td>
-                                        <td><Link to={`/user/${user.id}`} className='btn btn-light mx-2'>👁 View</Link></td>
+                                        <td><Link to={`/user/${user.id}`} className='btn btn-light mx-2'><i class="bi bi-eye-fill"></i> View</Link></td>
                                     </tr>
                                 ))
                             }

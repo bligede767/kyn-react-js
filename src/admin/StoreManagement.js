@@ -80,9 +80,9 @@ export default function StoreManagement() {
                   <td>{store.phone.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</td>
                   <td>
                     <div className='d-flex'>
-                      <Link to={`/viewStore/${store.id}`} className='btn btn-light mx-2'>👁 View</Link>
-                      <Link to={`/admin/update-store/${store.id}`} className='btn btn-light mx-2'>✏️ Edit</Link>
-                      <button className='btn btn-danger mx-2' onClick={() => confirmDelete(store.id, store.storeName)}>🗑 Delete</button>
+                      <Link to={`/viewStore/${store.id}`} className='btn btn-light mx-2'><i class="bi bi-eye-fill"></i> View</Link>
+                      <Link to={`/admin/update-store/${store.id}`} className='btn btn-light mx-2'><i class="bi bi-pencil-square"></i> Edit</Link>
+                      <button className='btn btn-danger mx-2' onClick={() => confirmDelete(store.id, store.storeName)}><i class="bi bi-trash3-fill"></i> Delete</button>
                     </div>
                   </td>
                 </tr>

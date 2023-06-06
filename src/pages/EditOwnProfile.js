@@ -69,7 +69,7 @@ export default function EditUserProfile(props) {
         <div>
             <div className='heading'>
                 <h1>Updating Your Profile</h1>
-                <Link to={"/profile"} className='btn btn-dark'>❌ Cancel</Link>
+                <Link to={"/profile"} className='btn btn-dark'><i class="bi bi-x-circle"></i> Cancel</Link>
             </div>
             <form onSubmit={(e) =>
                 onSubmit(e)
