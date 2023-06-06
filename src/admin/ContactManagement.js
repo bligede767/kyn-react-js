@@ -112,7 +112,7 @@ export default function StoreManagement() {
                   <td>{contact.email}</td>
                   <td>{contact.message}</td>
                   <td>
-                    <button className='btn btn-danger mx-2' onClick={() => confirmDelete(contact.id, contact.name)}><i class="bi bi-trash3-fill"></i> Delete</button>
+                    <button className='btn btn-danger mx-2' onClick={() => confirmDelete(contact.id, contact.name)}><i className="bi bi-trash3-fill"></i> Delete</button>
                   </td>
                 </tr>
               ))

@@ -110,9 +110,9 @@ export default function StoreManagement() {
                   <td>{store.phone}</td>
                   <td>
                     <div className='d-flex'>
-                      <Link to={`/viewStore/${store.id}`} className='btn btn-light mx-2'><i class="bi bi-eye-fill"></i> View</Link>
-                      <Link to={`/admin/update-store/${store.id}`} className='btn btn-light mx-2'><i class="bi bi-pencil-square"></i> Edit</Link>
-                      <button className='btn btn-danger mx-2' onClick={() => confirmDelete(store.id, store.storeName)}><i class="bi bi-trash3-fill"></i> Delete</button>
+                      <Link to={`/viewStore/${store.id}`} className='btn btn-light mx-2'><i className="bi bi-eye-fill"></i> View</Link>
+                      <Link to={`/admin/update-store/${store.id}`} className='btn btn-light mx-2'><i className="bi bi-pencil-square"></i> Edit</Link>
+                      <button className='btn btn-danger mx-2' onClick={() => confirmDelete(store.id, store.storeName)}><i className="bi bi-trash3-fill"></i> Delete</button>
                     </div>
                   </td>
                 </tr>

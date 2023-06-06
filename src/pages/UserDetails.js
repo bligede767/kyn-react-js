@@ -57,11 +57,11 @@ const UserDetails = () => {
                             alt="" style={{ width: "200px" }} />
                         <div className="information">
                             <h3>{user.name}</h3>
-                            <div><i class="bi bi-person-circle"></i> Username: {user.username}</div>
-                            <div><i class="bi bi-envelope-at-fill"></i> Email: {user.email}</div>
-                            <div><i class="bi bi-telephone-fill"></i> Phone: {user.phone}</div>
-                            <div><i class="bi bi-geo-alt-fill"></i> City: {user.city}</div>
-                            <div><i class="bi bi-globe2"></i> Country: {user.country}</div>
+                            <div><i className="bi bi-person-circle"></i> Username: {user.username}</div>
+                            <div><i className="bi bi-envelope-at-fill"></i> Email: {user.email}</div>
+                            <div><i className="bi bi-telephone-fill"></i> Phone: {user.phone}</div>
+                            <div><i className="bi bi-geo-alt-fill"></i> City: {user.city}</div>
+                            <div><i className="bi bi-globe2"></i> Country: {user.country}</div>
                         </div>
                     </div>
                 </div>

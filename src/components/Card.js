@@ -11,9 +11,9 @@ const Card = (props) => {
             </Link>
             <div className="card-info">
                 <h3 className="card-title">{props.storeName}</h3>
-                <div className="phone"><i class="bi bi-geo-alt-fill"></i> {props.city}</div>
-                <div className="phone"><i class="bi bi-globe-americas"></i> {props.country}</div>
-                <div className="phone"><i class="bi bi-telephone-fill"></i> {props.phone}</div>
+                <div className="phone"><i className="bi bi-geo-alt-fill"></i> {props.city}</div>
+                <div className="phone"><i className="bi bi-globe-americas"></i> {props.country}</div>
+                <div className="phone"><i className="bi bi-telephone-fill"></i> {props.phone}</div>
             </div>
         </article>
     )

@@ -42,13 +42,13 @@ export default function Admin() {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <Link to="/admin/users" className='btn btn-dark btn-lg w-100'><i class="bi bi-people"></i> User Management</Link>
+                    <Link to="/admin/users" className='btn btn-dark btn-lg w-100'><i className="bi bi-people"></i> User Management</Link>
                 </div>
                 <div className='col'>
-                    <Link to="/admin/stores" className='btn btn-dark btn-lg w-100'><i class="bi bi-shop-window"></i> Store Management</Link>
+                    <Link to="/admin/stores" className='btn btn-dark btn-lg w-100'><i className="bi bi-shop-window"></i> Store Management</Link>
                 </div>
                 <div className='col'>
-                    <Link to="/admin/contacts" className='btn btn-dark btn-lg w-100'><i class="bi bi-chat-left-text"></i> Contact Management</Link>
+                    <Link to="/admin/contacts" className='btn btn-dark btn-lg w-100'><i className="bi bi-chat-left-text"></i> Contact Management</Link>
                 </div>
             </div>
         </div>

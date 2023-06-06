@@ -66,7 +66,7 @@ export default function EditUserStore() {
             <div className='heading'>
                 <h1>Update Store</h1>
                 <h2>ID: {cid} | {storeName}</h2>
-                <Link to={"/admin/stores"} className='btn btn-dark'><i class="bi bi-x-circle"></i> Cancel</Link>
+                <Link to={"/admin/stores"} className='btn btn-dark'><i className="bi bi-x-circle"></i> Cancel</Link>
             </div>
             <form onSubmit={(e) => onSubmit(e)} className="row g-3">
                 <div className="col-md-12">

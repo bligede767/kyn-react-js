@@ -42,7 +42,7 @@ export default function SaveStore() {
     <div>
       <div className='heading'>
         <h1>Add Store</h1>
-        <Link to={"/"} className='btn btn-dark'><i class="bi bi-x-circle"></i> Cancel</Link>
+        <Link to={"/"} className='btn btn-dark'><i className="bi bi-x-circle"></i> Cancel</Link>
       </div>
       <form onSubmit={(e) => onSubmit(e)} className="row g-3">
         <div className="col-md-12">

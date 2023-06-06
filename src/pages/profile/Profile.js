@@ -52,11 +52,11 @@ const Profile = (props) => {
                                 alt="" style={{ width: "200px" }} />
                             <div className="information">
                                 <h3>{profile?.name}</h3>
-                                <div><i class="bi bi-person-circle"></i> Username: {profile?.username}</div>
-                                <div><i class="bi bi-envelope-at-fill"></i> Email: {profile?.email}</div>
-                                <div><i class="bi bi-telephone-fill"></i> Phone: {profile?.phone}</div>
-                                <div><i class="bi bi-geo-alt-fill"></i> City: {profile?.city}</div>
-                                <div><i class="bi bi-globe2"></i> Country: {profile?.country}</div>
+                                <div><i className="bi bi-person-circle"></i> Username: {profile?.username}</div>
+                                <div><i className="bi bi-envelope-at-fill"></i> Email: {profile?.email}</div>
+                                <div><i className="bi bi-telephone-fill"></i> Phone: {profile?.phone}</div>
+                                <div><i className="bi bi-geo-alt-fill"></i> City: {profile?.city}</div>
+                                <div><i className="bi bi-globe2"></i> Country: {profile?.country}</div>
                             </div>
                         </div>
                     </div>
