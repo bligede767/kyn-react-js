@@ -259,6 +259,10 @@ body {
 }
 
 .social-btn {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
   margin-bottom: 15px;
   font-weight: 400;
   font-size: 16px;
@@ -270,16 +274,7 @@ body {
   margin-top: 10px;
 }
 
-.social-btn.google {
-  margin-top: 7px;
-}
-
 .social-btn.facebook img {
-  height: 24px;
-  margin-left: 3px;
-}
-
-.social-btn.github img {
   height: 24px;
   margin-left: 3px;
 }
@@ -295,6 +290,10 @@ body {
   margin-top: 0;
   margin-bottom: 30px;
   color: rgba(0, 0, 0, 0.65);
+}
+
+.form-item {
+  margin: 15px 0;
 }
 
 /* ====== Sign Up Styling ====== */
