@@ -8,8 +8,37 @@ export default function UserManagement() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    isAdmin();
     loadUsers();
   }, []);
+
+  const isAdmin = async () => {
+    const token = localStorage.getItem(ACCESS_TOKEN)
+    // Check token
+    if (!token) {
+      navigate('/login')
+      return;
+    }
+
+    const headers = {
+      headers: {
+        Authorization: 'Bearer ' + token //the token is a variable which holds the token
+      }
+    };
+    fetch(`${API_BASE_URL}/admin`, headers)
+      .then(res => {
+        if (!res.ok) {
+          if (res.status === 403) {
+            navigate("/forbidden");
+          }
+        } else {
+          navigate("/admin/users")
+        }
+      })
+      .catch(error => {
+        navigate("/forbidden");
+      })
+  }
 
   const loadUsers = async () => {
     const token = localStorage.getItem(ACCESS_TOKEN)
@@ -24,8 +53,12 @@ export default function UserManagement() {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
     };
-    const result = await axios.get(`${API_BASE_URL}/admin/users`, headers)
-    setUsers(result.data);
+    try {
+      const result = await axios.get(`${API_BASE_URL}/admin/users`, headers)
+      setUsers(result.data);
+    } catch (error) {
+      navigate("/forbidden");
+    }
   }
 
   const deleteUser = async (id) => {

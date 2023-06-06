@@ -24,8 +24,10 @@ import SearchResult from './pages/SearchResult';
 import AboutUs from './pages/AboutUs';
 import TermsAndConditions from './pages/TermsAndConditions';
 import ContactUs from './pages/ContactUs';
-import NotFoundPage from './pages/NotFoundPage';
+import NotFoundPage from './error/NotFoundPage';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Admin from './admin/Admin';
+import ForbiddenPage from './error/ForbiddenPage';
 
 
 class App extends Component {
@@ -83,6 +85,7 @@ class App extends Component {
                 <Routes>
                   <Route path="/" element={<Home />} />
 
+                  <Route path="/admin" element={<Admin />} />
                   <Route path="/admin/users" element={<UserManagement />} />
                   <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
                   <Route path="/admin/stores" element={<StoreManagement />} />
@@ -106,6 +109,7 @@ class App extends Component {
                   <Route path="/contact" element={<ContactUs />} />
 
                   <Route path='*' element={<NotFoundPage />} />
+                  <Route path='/forbidden' element={<ForbiddenPage />} />
                 </Routes>
               </div>
             </div>

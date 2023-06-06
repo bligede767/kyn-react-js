@@ -9,8 +9,38 @@ export default function StoreManagement() {
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
+    isAdmin();
     loadStores();
   }, []);
+
+  const isAdmin = async () => {
+    const token = localStorage.getItem(ACCESS_TOKEN)
+    // Check token
+    if (!token) {
+      navigate('/login')
+      return;
+    }
+
+    const headers = {
+      headers: {
+        Authorization: 'Bearer ' + token //the token is a variable which holds the token
+      }
+    };
+    fetch(`${API_BASE_URL}/admin`, headers)
+      .then(res => {
+        if (!res.ok) {
+          if (res.status === 403) {
+            navigate("/forbidden");
+          }
+        } else {
+          navigate("/admin/users")
+        }
+      })
+      .catch(error => {
+        navigate("/forbidden");
+      })
+  }
+
 
   const loadStores = async () => {
     const token = localStorage.getItem(ACCESS_TOKEN)
