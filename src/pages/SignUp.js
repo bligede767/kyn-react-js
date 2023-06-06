@@ -98,22 +98,22 @@ class SignupForm extends Component {
                 <div className="form-item">
                     <input type="text" name="name"
                         className="form-control" placeholder="Name"
-                        value={this.state.name} onChange={this.handleInputChange} />
+                        value={this.state.name} onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
                     <input type="text" name="username"
                         className="form-control" placeholder="Username"
-                        value={this.state.username} onChange={this.handleInputChange} />
+                        value={this.state.username} onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
                     <input type="email" name="email"
                         className="form-control" placeholder="Email"
-                        value={this.state.email} onChange={this.handleInputChange} />
+                        value={this.state.email} onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
                     <input type="password" name="password"
                         className="form-control" placeholder="Password"
-                        value={this.state.password} onChange={this.handleInputChange} />
+                        value={this.state.password} onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
                     <button type="submit" className="btn btn-block btn-primary" >Sign Up</button>
