@@ -94,7 +94,7 @@ export default function EditUserStore() {
                     <input
                         type={"text"}
                         className="form-control"
-                        placeholder="Enter make year"
+                        placeholder="Enter country"
                         name="country"
                         value={country}
                         onChange={(e) => onInputChange(e)} required />

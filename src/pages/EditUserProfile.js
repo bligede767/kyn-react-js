@@ -100,7 +100,7 @@ export default function EditUserProfile() {
                     <input
                         type={"text"}
                         className="form-control"
-                        placeholder="Enter make year"
+                        placeholder="Enter email"
                         name="email"
                         value={email}
                         onChange={(e) => onInputChange(e)} required />
@@ -110,7 +110,7 @@ export default function EditUserProfile() {
                     <input
                         type={"number"}
                         className="form-control"
-                        placeholder="Enter your hone"
+                        placeholder="Enter your phone"
                         name="phone"
                         value={phone}
                         onChange={(e) => onInputChange(e)} required />

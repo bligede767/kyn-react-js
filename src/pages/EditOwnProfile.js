@@ -104,7 +104,7 @@ export default function EditUserProfile(props) {
                     <input
                         type={"text"}
                         className="form-control"
-                        placeholder="Enter make year"
+                        placeholder="Enter email"
                         name="email"
                         value={email}
                         onChange={(e) => onInputChange(e)} required />
