@@ -11,23 +11,23 @@ export default function MySidebar(props) {
   return (
     <div className="sidebar">
       <Link to="/">
-        <h2>🏘 KYN</h2>
+        <h2><i class="bi bi-houses-fill"></i> KYN</h2>
       </Link>
       <ul>
         {token ?
-          <li><Link to="/"><i className="fas fa-home"></i>🏠 Home</Link></li>
+          <li><Link to="/"><i class="bi bi-house-door"></i> Home</Link></li>
           : <></>}
         {token ?
-          <li><Link to="/profile"><i className="fas fa-home"></i>👤 Profile</Link></li>
+          <li><Link to="/profile"><i class="bi bi-person-circle"></i> Profile</Link></li>
           : <></>}
         {(token && profile?.role === 'ROLE_ADMIN') ?
-          <li><Link to="/admin/users"><i className="fas fa-home"></i>👥 User Management</Link></li>
+          <li><Link to="/admin/users"><i class="bi bi-people"></i> User Management</Link></li>
           : <></>}
         {(token && profile?.role === 'ROLE_ADMIN') ?
-          <li><Link to="/admin/stores"><i className="fas fa-home"></i>🛍 Store Management</Link></li>
+          <li><Link to="/admin/stores"><i class="bi bi-shop-window"></i> Store Management</Link></li>
           : <></>}
         {!token ?
-          <li><Link to="/login"><i className="fas fa-home"></i>📲 Login</Link></li> : <></>}
+          <li><Link to="/login"><i class="bi bi-box-arrow-in-right"></i> Login</Link></li> : <></>}
         {token ?
           <li><i className="fas fa-project-diagram"></i><SearchBar /></li>
           : <></>}
@@ -37,10 +37,10 @@ export default function MySidebar(props) {
             if (isLogout) {
               navigate('/login', { replace: true });
             }
-          }}><i className="fas fa-home"></i>🚪 Log Out</Link></li>
+          }}><i className="fas fa-home"></i><i class="bi bi-box-arrow-left"></i> Log Out</Link></li>
           : <></>}
       </ul>
-    </div>
+    </div >
   )
 
 }

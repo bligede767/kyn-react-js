@@ -14,7 +14,7 @@ const SearchBar = () => {
             <div>
                 <div>
                     {/* <input type="hidden" id="storename" name="filter" value="storename" /> */}
-                    <input type="text" className='form-control' name="storeNameKeyword" placeholder='Search...' required />
+                    <input type="text" className='form-control' name="storeNameKeyword" placeholder='Search' required />
                 </div>
             </div>
             <button id='search-submit-button' type="submit" className='btn btn-light'>Search</button>

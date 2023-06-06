@@ -53,9 +53,9 @@ export default function ViewStore() {
                 </div>
                 <div className='col-6'>
                     <h1>{store.storeName}</h1>
-                    <div>🏙 {store.city}</div>
-                    <div>🌎 {store.country}</div>
-                    <div className='card-detail-phone'>📞 {store.phone}</div>
+                    <div><i class="bi bi-geo-alt-fill"></i> {store.city}</div>
+                    <div><i class="bi bi-globe2"></i> {store.country}</div>
+                    <div className='card-detail-phone'><i class="bi bi-telephone-fill"></i> {store.phone}</div>
                 </div>
             </div>
         </div>

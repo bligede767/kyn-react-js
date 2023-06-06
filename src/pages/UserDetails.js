@@ -57,22 +57,27 @@ const UserDetails = () => {
                             alt="" style={{ width: "200px" }} />
                         <div className="information">
                             <h3>{user.name}</h3>
-                            <div>👤 Username: {user.username}</div>
-                            <div>✉️ Email: {user.email}</div>
-                            <div>📱 Phone: {user.phone}</div>
-                            <div>🏙 City: {user.city}</div>
-                            <div>🌎 Country: {user.country}</div>
+                            <div><i class="bi bi-person-circle"></i> Username: {user.username}</div>
+                            <div><i class="bi bi-envelope-at-fill"></i> Email: {user.email}</div>
+                            <div><i class="bi bi-telephone-fill"></i> Phone: {user.phone}</div>
+                            <div><i class="bi bi-geo-alt-fill"></i> City: {user.city}</div>
+                            <div><i class="bi bi-globe2"></i> Country: {user.country}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='cards' style={{ marginTop: "40px" }}>
-                {
-                    stores.map((store, index) => (
-                        <Card key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
-                    ))
-                }
-            </div>
+            {stores.length !== 0 ?
+                <div style={{ marginTop: "40px" }}>
+                    <h3>Stores</h3>
+                    <div className='cards' style={{ marginTop: "20px" }}>
+                        {
+                            stores.map((store, index) => (
+                                <Card key={index} storeId={store.id} storeName={store.storeName} city={store.city} country={store.country} phone={store.phone} />
+                            ))
+                        }
+                    </div>
+                </div>
+                : <></>}
         </div>
     )
 }

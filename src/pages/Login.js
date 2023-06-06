@@ -79,6 +79,7 @@ const LoginForm = (props) => {
                 localStorage.setItem(ACCESS_TOKEN, response.accessToken);
                 alert("You logged in successfully!")
                 navigate("/")
+                window.location.reload(false);
             }).catch(error => {
                 alert("Incorrect credential!")
             });
