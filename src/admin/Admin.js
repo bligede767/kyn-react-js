@@ -24,7 +24,7 @@ export default function Admin() {
                         navigate("/forbidden");
                     }
                 } else {
-                    navigate("/admin/users")
+                    navigate("/admin/users");
                 }
             })
             .catch(error => {
@@ -35,4 +35,19 @@ export default function Admin() {
         console.log("welcome to admin")
         isAdmin();
     }, [])
+    return (
+        <div>
+            <div className="heading">
+                <h1>Welcome to Admin Page</h1>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    <Link to="/admin/users" className='btn btn-dark btn-lg w-100'><i class="bi bi-people"></i> User Management</Link>
+                </div>
+                <div className='col'>
+                    <Link to="/admin/stores" className='btn btn-dark btn-lg w-100'><i class="bi bi-shop-window"></i> Store Management</Link>
+                </div>
+            </div>
+        </div>
+    );
 }
