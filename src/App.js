@@ -28,6 +28,7 @@ import NotFoundPage from './error/NotFoundPage';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Admin from './admin/Admin';
 import ForbiddenPage from './error/ForbiddenPage';
+import ContactManagement from './admin/ContactManagement';
 
 
 class App extends Component {
@@ -90,6 +91,7 @@ class App extends Component {
                   <Route path="/admin/update-user/:id" element={<EditUserProfile />} />
                   <Route path="/admin/stores" element={<StoreManagement />} />
                   <Route path="/admin/update-store/:cid" element={<EditUserStore />} />
+                  <Route path="/admin/contacts" element={<ContactManagement />} />
 
                   <Route path="/user/:id" element={<UserDetails />} />
                   <Route path="/profile" element={<Profile data={this.state} />} />

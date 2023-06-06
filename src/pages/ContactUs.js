@@ -90,6 +90,7 @@ export default function ContactUs() {
                         placeholder="Your message..."
                         name="message"
                         value={message}
+                        style={{ minHeight: "150px" }}
                         onChange={(e) => onInputChange(e)} required />
                 </div>
                 <div className="col-12">

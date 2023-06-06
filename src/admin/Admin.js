@@ -47,6 +47,9 @@ export default function Admin() {
                 <div className='col'>
                     <Link to="/admin/stores" className='btn btn-dark btn-lg w-100'><i class="bi bi-shop-window"></i> Store Management</Link>
                 </div>
+                <div className='col'>
+                    <Link to="/admin/contacts" className='btn btn-dark btn-lg w-100'><i class="bi bi-chat-left-text"></i> Contact Management</Link>
+                </div>
             </div>
         </div>
     );

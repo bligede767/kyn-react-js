@@ -26,6 +26,9 @@ export default function MySidebar(props) {
         {(token && profile?.role === 'ROLE_ADMIN') ?
           <li><Link to="/admin/stores"><i class="bi bi-shop-window"></i> Store Management</Link></li>
           : <></>}
+        {(token && profile?.role === 'ROLE_ADMIN') ?
+          <li><Link to="/admin/contacts"><i class="bi bi-chat-left-text"></i> Contact Management</Link></li>
+          : <></>}
         {!token ?
           <li><Link to="/login"><i class="bi bi-box-arrow-in-right"></i> Login</Link></li> : <></>}
         {token ?
