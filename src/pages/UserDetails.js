@@ -45,7 +45,7 @@ const UserDetails = () => {
             <div className='heading d-flex'>
                 <h1>User Details</h1>
                 {profile?.role === 'ROLE_ADMIN' ?
-                    <Link to={`/admin/update-user/${user.id}`} >Edit</Link>
+                    <Link to={`/admin/update-user/${user.id}`} ><i class="bi bi-pencil-square"></i> Edit</Link>
                     : <></>
                 }
             </div>

@@ -42,7 +42,7 @@ const Profile = (props) => {
             <div>
                 <div className='heading d-flex'>
                     <h1>Profile</h1>
-                    <Link to={"/profile/update"} >Edit</Link>
+                    <Link to={"/profile/update"} ><i class="bi bi-pencil-square"></i> Edit</Link>
                 </div>
                 <div className='profile-bg' >
                     <div className="profile-content text-white ">

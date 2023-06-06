@@ -43,7 +43,7 @@ export default function ViewStore() {
             <div className="heading d-flex">
                 <h1>Store Detail</h1>
                 {profile?.role === 'ROLE_ADMIN' ?
-                    <Link to={`/admin/update-store/${store.id}`} >Edit</Link>
+                    <Link to={`/admin/update-store/${store.id}`} ><i class="bi bi-pencil-square"></i> Edit</Link>
                     : <></>
                 }
             </div>
