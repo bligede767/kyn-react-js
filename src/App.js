@@ -11,8 +11,8 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import { ACCESS_TOKEN } from './constants'
 import { getCurrentUser } from './util/APIUtils'
-import OAuth2RedirectHandler from './user/oauth2/OAuth2RedirectHandler';
-import Profile from './user/profile/Profile'
+import OAuth2RedirectHandler from './oauth2/OAuth2RedirectHandler';
+import Profile from './pages/profile/Profile'
 import UserManagement from './admin/UserManagement';
 import EditUserProfile from './pages/EditUserProfile'
 import EditOwnProfile from './pages/EditOwnProfile'
