@@ -115,7 +115,7 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
-  justify-card: flex-start;
+  justify-content: flex-start;
   gap: 30px;
 }
 
