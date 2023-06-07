@@ -88,7 +88,7 @@ export default function StoreManagement() {
   return (
     <div>
       <div className='heading'>
-        <h1>Store Management</h1>
+        <h1>Contact Management</h1>
       </div>
       <div className='cards'>
         <table id="example" className="table table-striped" style={{ width: "100%" }}>
