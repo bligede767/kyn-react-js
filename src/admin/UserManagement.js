@@ -113,7 +113,7 @@ export default function UserManagement() {
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
-                  <td>{user.provider}</td>
+                  <td>{user.provider.charAt(0).toUpperCase() + user.provider.slice(1)}</td>
                   <td>{user.role?.replaceAll("_", " ")}</td>
                   <td>
                     <div className='d-flex'>
