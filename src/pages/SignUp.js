@@ -50,9 +50,9 @@ const SocialSignup = () => {
     return (
         <div className="social-signup">
             <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                <img src={googleLogo} alt="Google" /> Sign up with Google</a>
+                <i class="bi bi-google"></i> Sign up with Google</a>
             <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
-                <img src={fbLogo} alt="Facebook" /> Sign up with Facebook</a>
+                <i class="bi bi-facebook"></i> Sign up with Facebook</a>
         </div>
     );
 }

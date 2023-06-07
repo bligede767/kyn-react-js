@@ -3,6 +3,7 @@ import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, ACCESS_TOKEN } from '../constants';
 import { login } from '../util/APIUtils';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import fbLogo from '../img/fb-logo.png';
+import googleLogo from '../img/fb-logo.png';
 
 export default function Login(props) {
     console.log(props)
@@ -52,9 +53,9 @@ const SocialLogin = () => {
     return (
         <div className="social-login">
             <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                <img src={fbLogo} alt="Google" /> Log in with Google</a>
+                <i class="bi bi-google"></i> Log in with Google</a>
             <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
-                <img src={fbLogo} alt="Facebook" /> Log in with Facebook</a>
+                <i class="bi bi-facebook"></i> Log in with Facebook</a>
         </div>
     );
 }
